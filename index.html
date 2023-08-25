@@ -1,0 +1,1436 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<title>Sonia Reisin - Consulting</title>
+	<meta name="description" content="">
+<meta property="og:image" content="https://earthfoam.com/img/EF_Web_Image_Home_FullBleed-01_1200x630_c.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://earthfoam.com/img/EF_Web_Image_Home_FullBleed-01_800x418_c.jpg">
+	<meta property="og:site_name" content="Earthfoam">
+<meta name="language" content="en">
+<meta name="twitter:url" property="og:url" content="https://soniareisin.com/">
+
+<meta property="og:email" content="support@soniareisin.com">
+<meta property="og:phone_number" content="312.626.9680">
+<meta name="twitter:site" content="soniareisin">
+<meta name="copyright" content="2022 Shevick Sales Corp.">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+
+<script>
+	'use strict';
+	console.groupCollapsed('Site Credits');
+	console.log('Web Design by Michael Mitzman https://mitz.nyc');
+	console.log('Web Development by Sensor Station https://www.sensorstation.co');
+	console.groupEnd();
+</script>
+
+<script>
+	'use strict';
+	const SHOPIFY_SHOP_ID = 'earthfoam';
+	const SHOPIFY_API_DOMAIN = 'shop.earthfoam.com';
+	const SHOPIFY_STOREFRONT_TOKEN = 'e93e2f31ab83b4f5da6fdd574b05a466';
+</script>
+
+
+	<script>
+		function getCookie(name) {
+			const c = document.cookie.split(';').map((c) => c.trim()).find((c) => c.startsWith(name + '='));
+			return c ? decodeURIComponent(c.split('=')[1]) : c;
+		}
+		function setCookie(name, value, expirationDays) {
+			document.cookie = `${name}=${encodeURIComponent(value)}; Max-Age=${60*60*24*expirationDays}; SameSite=strict; Path=/`;
+		}
+	</script>
+
+	
+	<script src="/js/pjax@2.4.0.min.js" defer></script>
+	<script src="/js/main.js" defer></script>
+	<script src="/js/storefront.js" defer></script>
+
+	<link rel="stylesheet" href="/stylesheet.css">
+
+	
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W2FW9N2');</script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+function uuid() {
+	if(crypto && crypto.getRandomUUID) {
+		return crypto.getRandomUUID();
+	}
+	return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+	    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+	);
+}
+
+// Generate UUID
+if(!localStorage.getItem('user_id')) {
+	localStorage.setItem('user_id', uuid());
+}
+
+window.ElevarUserIDFn = function() {
+	return localStorage.getItem('user_id');
+};
+
+const TRACK_BRAND = 'Earthfoam';
+const TRACK_CURRENCY = 'USD';
+const TRACK_DEFAULT_LIST = '/products';
+
+function track_pageLoad(cart_total, products) {
+	window.ElevarPushToDataLayer({
+		event: 'dl_user_data',
+		cart_total: cart_total,
+		user_properties: track__buildUserProperties(),
+		ecommerce: {
+			cart_contents: {
+				products: products,
+			},
+			currencyCode: TRACK_CURRENCY,
+		}
+	});
+}
+
+function track_collectionView(impressions) {
+	window.ElevarPushToDataLayer({
+		event: 'dl_view_item_list',
+		user_properties: track__buildUserProperties(),
+		ecommerce: {
+			currencyCode: TRACK_CURRENCY,
+			impressions: impressions,
+		}
+	});
+}
+
+function track_productClick(product) {
+	window.ElevarPushToDataLayer({
+		event: 'dl_select_item',
+		user_properties: track__buildUserProperties(),
+		ecommerce: {
+			currencyCode: TRACK_CURRENCY,
+			click: {
+				actionField: {list: window.location.pathname, action: 'click'},
+				products: [product],
+			}
+		}
+	});
+}
+
+function track_productView(product) {
+	window.ElevarPushToDataLayer({
+		event: 'dl_view_item',
+		user_properties: track__buildUserProperties(),
+		ecommerce: {
+			currencyCode: TRACK_CURRENCY,
+			detail: {
+				actionField: {list: window.location.pathname, action: 'detail'},
+				products: [product],
+			}
+		}
+	});
+}
+
+function track_cartAdd(products) {
+	window.ElevarPushToDataLayer({
+		event: 'dl_add_to_cart',
+		user_properties: track__buildUserProperties(),
+		ecommerce: {
+			currencyCode: TRACK_CURRENCY,
+			add: {
+				actionField: {list: window.location.pathname},
+				products: products,
+			}
+		}
+	});
+}
+
+function track_cartRemove(products) {
+	window.ElevarPushToDataLayer({
+		event: 'dl_remove_from_cart',
+		user_properties: track__buildUserProperties(),
+		ecommerce: {
+			currencyCode: TRACK_CURRENCY,
+			remove: {
+				actionField: {list: window.location.pathname},
+				products: products,
+			}
+		}
+	});
+}
+
+function track_cartView(total, impressions) {
+	window.ElevarPushToDataLayer({
+		event: 'dl_view_cart',
+		user_properties: track__buildUserProperties(),
+		cart_total: total,
+		ecommerce: {
+			currencyCode: TRACK_CURRENCY,
+			actionField: {list: 'Shopping Cart'},
+			impressions: impressions,
+		}
+	});
+}
+
+
+function track__buildUserProperties() {
+	return {
+		user_consent: '',
+		visitor_type: 'guest',
+	};
+}
+
+const PRODUCTS = {"6764572737614":{"id":"gid://shopify/Product/6764572737614","availableForSale":true,"description":"What a dream. Naturally breathable, comfy but firm, super supportive, and no sinking feeling. Made of natural rubber from organic farmers in Sri Lanka (we know them), organic wool from New Zealand sheep (we know them, too), and soft organic cotton. Free shipping (contiguous United States) and free returns.","handle":"mattress","onlineStoreUrl":"https://shop.earthfoam.com/products/mattress","productType":"Mattresses","publishedAt":"2022-06-29T15:48:40Z","title":"Earthfoam Organic Mattress","tags":[],"featuredImage":{"url":"https://cdn.shopify.com/s/files/1/2550/8916/products/211103_SG_Earthfoam_Shot04_Detail_00975_3274SG_B_ADOBERGB.jpg?v=1679585647"},"seo":{"description":null,"title":null},"options":[{"id":"gid://shopify/ProductOption/8666417332302","name":"Size","values":["Twin","Twin XL","Full","Queen","King","California King"]},{"id":"gid://shopify/ProductOption/8666417365070","name":"Firmness","values":["Medium","Firm"]}],"totalInventory":1199980,"compareAtPriceRange":{"maxVariantPrice":{"amount":"0.0"},"minVariantPrice":{"amount":"0.0"}},"variants":[{"id":"gid://shopify/ProductVariant/39875784474702","availableForSale":true,"price":{"amount":"699.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"Twin"},{"name":"Firmness","value":"Medium"}],"sku":"EFMT9M","title":"Twin / Medium","weight":85.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875784507470","availableForSale":true,"price":{"amount":"699.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"Twin"},{"name":"Firmness","value":"Firm"}],"sku":"EFMT9F","title":"Twin / Firm","weight":90.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875784540238","availableForSale":true,"price":{"amount":"749.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"Twin XL"},{"name":"Firmness","value":"Medium"}],"sku":"EFMX9M","title":"Twin XL / Medium","weight":90.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875784573006","availableForSale":true,"price":{"amount":"749.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"Twin XL"},{"name":"Firmness","value":"Firm"}],"sku":"EFMX9F","title":"Twin XL / Firm","weight":95.0,"weightUnit":"OUNCES","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875784605774","availableForSale":true,"price":{"amount":"899.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"Full"},{"name":"Firmness","value":"Medium"}],"sku":"EFMF9M","title":"Full / Medium","weight":120.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875784638542","availableForSale":true,"price":{"amount":"899.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"Full"},{"name":"Firmness","value":"Firm"}],"sku":"EFMF9F","title":"Full / Firm","weight":130.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875784671310","availableForSale":true,"price":{"amount":"999.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"Queen"},{"name":"Firmness","value":"Medium"}],"sku":"EFMQ9M","title":"Queen / Medium","weight":125.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875784704078","availableForSale":true,"price":{"amount":"999.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"Queen"},{"name":"Firmness","value":"Firm"}],"sku":"EFMQ9F","title":"Queen / Firm","weight":140.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875784736846","availableForSale":true,"price":{"amount":"1499.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"King"},{"name":"Firmness","value":"Medium"}],"sku":"EFMK9M","title":"King / Medium","weight":170.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875784769614","availableForSale":true,"price":{"amount":"1499.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"King"},{"name":"Firmness","value":"Firm"}],"sku":"EFMK9F","title":"King / Firm","weight":180.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875784802382","availableForSale":true,"price":{"amount":"1499.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"California King"},{"name":"Firmness","value":"Medium"}],"sku":"EFMC9M","title":"California King / Medium","weight":170.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875784835150","availableForSale":true,"price":{"amount":"1499.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"California King"},{"name":"Firmness","value":"Firm"}],"sku":"EFMC9F","title":"California King / Firm","weight":180.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null}]},"6764572901454":{"id":"gid://shopify/Product/6764572901454","availableForSale":true,"description":"A little cloud cover. Two inches of our softest foam rubber to make a firm mattress softer without losing support. Made of natural rubber from organic farmers in Sri Lanka (we know them), organic wool from New Zealand sheep (we know them, too), and soft organic cotton. Free shipping (contiguous United States) and free returns.","handle":"mattress-topper","onlineStoreUrl":"https://shop.earthfoam.com/products/mattress-topper","productType":"Mattress Pads","publishedAt":"2022-06-29T15:56:41Z","title":"Earthfoam Organic Mattress Topper","tags":[],"featuredImage":{"url":"https://cdn.shopify.com/s/files/1/2550/8916/products/Email_ProdTile_Topper.jpg?v=1669136556"},"seo":{"description":null,"title":null},"options":[{"id":"gid://shopify/ProductOption/8666417528910","name":"Size","values":["Twin","Twin XL","Full","Queen","King","California King"]}],"totalInventory":599994,"compareAtPriceRange":{"maxVariantPrice":{"amount":"0.0"},"minVariantPrice":{"amount":"0.0"}},"variants":[{"id":"gid://shopify/ProductVariant/39875785261134","availableForSale":true,"price":{"amount":"299.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"Twin"}],"sku":"EFTT2S","title":"Twin","weight":22.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875785326670","availableForSale":true,"price":{"amount":"299.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"Twin XL"}],"sku":"EFTX2S","title":"Twin XL","weight":24.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875785392206","availableForSale":true,"price":{"amount":"329.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"Full"}],"sku":"EFTF2S","title":"Full","weight":30.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875785457742","availableForSale":true,"price":{"amount":"349.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"Queen"}],"sku":"EFTQ2S","title":"Queen","weight":33.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875785523278","availableForSale":true,"price":{"amount":"399.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"King"}],"sku":"EFTK2S","title":"King","weight":45.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39875785588814","availableForSale":true,"price":{"amount":"399.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Size","value":"California King"}],"sku":"EFTC2S","title":"California King","weight":45.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null}]},"6764574179406":{"id":"gid://shopify/Product/6764574179406","availableForSale":true,"description":"This head-sized bed is springy, soft, and supportive. Made of natural foam rubber and two outer layers of soft organic cotton. This pillow comes in one size (27x15x6.5 inches). It is ideally suited for queen-size pillowcases but will also fit in roomy standard pillowcases and king pillowcases. Free shipping (contiguous United States) and free returns.","handle":"pillow","onlineStoreUrl":"https://shop.earthfoam.com/products/pillow","productType":"Pillows","publishedAt":"2022-06-29T15:54:29Z","title":"Earthfoam Organic Pillow","tags":[],"featuredImage":{"url":"https://cdn.shopify.com/s/files/1/2550/8916/products/Email_ProdTile_Pillow.jpg?v=1669136593"},"seo":{"description":null,"title":null},"options":[{"id":"gid://shopify/ProductOption/8666419003470","name":"Quantity","values":["One Pillow","Two Pillows"]}],"totalInventory":1987,"compareAtPriceRange":{"maxVariantPrice":{"amount":"0.0"},"minVariantPrice":{"amount":"0.0"}},"variants":[{"id":"gid://shopify/ProductVariant/40098672607310","availableForSale":true,"price":{"amount":"99.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Quantity","value":"One Pillow"}],"sku":"EFPQ-1","title":"One Pillow","weight":5.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/40098672640078","availableForSale":true,"price":{"amount":"169.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Quantity","value":"Two Pillows"}],"sku":"EFPQ-2","title":"Two Pillows","weight":10.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null}]},"6764649021518":{"id":"gid://shopify/Product/6764649021518","availableForSale":true,"description":"","handle":"mattress-fee","onlineStoreUrl":"https://shop.earthfoam.com/products/mattress-fee","productType":"","publishedAt":"2022-06-29T19:53:38Z","title":"Mattress Fee","tags":[],"featuredImage":null,"seo":{"description":null,"title":null},"options":[{"id":"gid://shopify/ProductOption/8666503512142","name":"Mattress Recycling Fee","values":["CA","CT","RI"]}],"totalInventory":-42,"compareAtPriceRange":{"maxVariantPrice":{"amount":"0.0"},"minVariantPrice":{"amount":"0.0"}},"variants":[{"id":"gid://shopify/ProductVariant/39876107173966","availableForSale":true,"price":{"amount":"10.5","currencyCode":"USD"},"requiresShipping":false,"selectedOptions":[{"name":"Mattress Recycling Fee","value":"CA"}],"sku":"CA","title":"CA","weight":0.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39876107206734","availableForSale":true,"price":{"amount":"11.75","currencyCode":"USD"},"requiresShipping":false,"selectedOptions":[{"name":"Mattress Recycling Fee","value":"CT"}],"sku":"CT","title":"CT","weight":0.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null},{"id":"gid://shopify/ProductVariant/39876107239502","availableForSale":true,"price":{"amount":"16.0","currencyCode":"USD"},"requiresShipping":false,"selectedOptions":[{"name":"Mattress Recycling Fee","value":"RI"}],"sku":"RI","title":"RI","weight":0.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null}]},"6850936602702":{"id":"gid://shopify/Product/6850936602702","availableForSale":true,"description":"","handle":"morning-person-tea-set","onlineStoreUrl":"https://shop.earthfoam.com/products/morning-person-tea-set","productType":"","publishedAt":"2023-01-18T02:01:45Z","title":"Morning Person Tea Set","tags":[],"featuredImage":{"url":"https://cdn.shopify.com/s/files/1/2550/8916/products/WakeUpKit_FullKit02_9deed3a2-d090-4ae8-ae8b-3d021c1facee.jpg?v=1674165974"},"seo":{"description":null,"title":null},"options":[{"id":"gid://shopify/ProductOption/8767468404814","name":"Title","values":["Default Title"]}],"totalInventory":982,"compareAtPriceRange":{"maxVariantPrice":{"amount":"0.0"},"minVariantPrice":{"amount":"0.0"}},"variants":[{"id":"gid://shopify/ProductVariant/40162398634062","availableForSale":true,"price":{"amount":"29.0","currencyCode":"USD"},"requiresShipping":true,"selectedOptions":[{"name":"Title","value":"Default Title"}],"sku":"P-EFSK","title":"Default Title","weight":0.0,"weightUnit":"POUNDS","unitPrice":null,"shipping__cutoff_message":null,"shipping__backorder_date":null}]}};
+
+function track__buildImpression(product_id, variant_id, position, quantity, list_url) {
+	const p = PRODUCTS[product_id];
+	const v = p.variants.find(function(variant) {
+		return variant.id.endsWith(variant_id);
+	});
+	return {
+		id: v.sku,
+		name: p.title,
+		category: p.productType,
+		brand: TRACK_BRAND,
+		variant: v.title,
+		price: v.price.amount,
+		quantity: quantity,
+		list: list_url,
+		product_id: product_id,
+		variant_id: variant_id,
+		position: position,
+		image: p.featuredImage.url,
+	};
+}
+
+function track__buildProduct(product_id, variant_id, quantity, position) {
+	const p = PRODUCTS[product_id];
+	const v = p.variants.find(function(variant) {
+		return variant.id.endsWith(variant_id);
+	});
+	return {
+		id: v.sku,
+		name: p.title,
+		category: p.productType,
+		brand: TRACK_BRAND,
+		variant: v.title,
+		price: v.price.amount,
+		quantity: quantity,
+		list: TRACK_DEFAULT_LIST,
+		product_id: product_id,
+		variant_id: variant_id,
+		position: position,
+		image: p.featuredImage.url,
+		compare_at_price: p.compareAtPriceRange.minVariantPrice.amount,
+		inventory: p.totalInventory.toString(),
+	};
+}
+
+document.addEventListener('pjax:success', function() {
+	try {
+		ElevarGtmSuiteAAT.utils.pushContextToDataLayer();
+	} catch(e) {
+		// ignore
+	}
+	try {
+		checkoutFetch().then((checkout) => {
+			let products = [];
+			let total = 0;
+			if(checkout) {
+				products = checkout.lineItems.edges.map(function(item, i) {
+					const p_id = parseInt(item.node.variant.product.id.split('/').slice(-1)[0]);
+					const v_id = parseInt(item.node.variant.id.split('/').slice(-1)[0]);
+					return track__buildProduct(p_id.toString(), v_id.toString(), item.node.quantity.toString(), i);
+				});
+				total = checkout.totalPrice.amount;
+			}
+			track_pageLoad(total.toString(), products);
+
+			const evt = new Event('tracking:pageInit', {bubbles: true, cancelable: true});
+			evt.checkout = checkout;
+			document.dispatchEvent(evt);
+		});
+	} catch(e) {
+		console.error(e);
+	}
+});
+
+document.addEventListener('cart:added', function(e) {
+	try {
+		const products = e.items.map(function(item) {
+			return track__buildProduct(item.productIdNumeric.toString(), item.variantIdNumeric.toString(), item.quantity.toString(), undefined);
+		});
+		track_cartAdd(products);
+	} catch(e) {
+		console.error(e);
+	}
+});
+
+document.addEventListener('cart:removed', function(e) {
+	try {
+		const products = e.items.map(function(item) {
+			return track__buildProduct(item.productIdNumeric.toString(), item.variantIdNumeric.toString(), item.quantity.toString(), undefined);
+		});
+		track_cartRemove(products);
+	} catch(e) {
+		console.error(e);
+	}
+});
+</script>
+
+<script id="elevar-dl-listener-config" type="application/json">{"data_layer_listener_script": "https://shopify-gtm-suite.getelevar.com/shops/4bf1f29a26e271dc466b65c8d041b8b484c4091a/3.1.9/events.js", "ss_url": "https://hits.getelevar.com", "signing_key": "jDvCyAa4GvHqHijqMHoPFngDeHQAKNGT", "myshopify_domain": "earthfoam.myshopify.com"}</script>
+<script>
+	(() => {
+		const configElement = document.getElementById("elevar-dl-listener-config");
+
+		if (!configElement) {
+			console.error("Elevar: DLL Config element not found");
+			return;
+		}
+
+		const config = JSON.parse(configElement.textContent);
+
+		const script = document.createElement("script");
+		script.type = "text/javascript";
+		script.src = config.data_layer_listener_script;
+
+		script.onerror = function () {
+			console.error("Elevar: DLL JS script failed to load");
+		};
+		script.onload = function () {
+			if (!window.ElevarGtmSuiteListener) {
+				console.error("Elevar: `ElevarGtmSuiteListener` is not defined");
+				return;
+			}
+
+			window.ElevarGtmSuiteListener.handlers.listen({
+				ssUrl: config.ss_url,
+				signingKey: config.signing_key,
+				myshopifyDomain: config.myshopify_domain
+			});
+		};
+
+		document.head.appendChild(script, document.currentScript);
+	})();
+</script>
+<script id="elevar-dl-aat-config" type="application/json">{"data_layer_aat_script": "https://shopify-gtm-suite.getelevar.com/shops/4bf1f29a26e271dc466b65c8d041b8b484c4091a/3.1.9/aat.js", "apex_domain": "earthfoam.com", "consent_enabled": false}</script>
+<script>
+	(() => {
+		const init = () => {
+			window.__ElevarDataLayerQueue = [];
+			window.__ElevarListenerLoadQueue = [];
+			if (!window.dataLayer) window.dataLayer = [];
+		}
+		init();
+		window.__ElevarTransformItem = event => {
+			if (typeof window.ElevarTransformFn === "function") {
+				try {
+					const result = window.ElevarTransformFn(event);
+					if (typeof result === "object" && !Array.isArray(result) && result !== null) {
+						return result;
+					} else {
+						console.error("Elevar Data Layer: `window.ElevarTransformFn` returned a value " + "that wasn't an object, so we've treated things as if this " + "function wasn't defined.");
+						return event;
+					}
+				} catch (error) {
+					console.error("Elevar Data Layer: `window.ElevarTransformFn` threw an error, so " + "we've treated things as if this function wasn't defined. The " + "exact error is shown below.");
+					console.error(error);
+					return event;
+				}
+			} else {
+				return event;
+			}
+		}
+		window.ElevarPushToDataLayer = item => {
+			const enrichedItem = {
+				event_id: window.crypto.randomUUID(),
+				event_time: new Date().toISOString(),
+				...item
+			};
+			const transformedEnrichedItem = window.__ElevarTransformItem ? window.__ElevarTransformItem(enrichedItem) : enrichedItem;
+			const listenerPayload = {
+				raw: enrichedItem,
+				transformed: transformedEnrichedItem
+			};
+			const getListenerNotifyEvent = () => {
+				return new CustomEvent("elevar-listener-notify", {
+					detail: listenerPayload
+				});
+			};
+			if (transformedEnrichedItem._elevar_internal?.isElevarContextPush) {
+				window.__ElevarIsContextSet = true;
+				window.__ElevarDataLayerQueue.unshift(transformedEnrichedItem);
+				if (window.__ElevarIsListenerListening) {
+					window.dispatchEvent(getListenerNotifyEvent());
+				} else {
+					window.__ElevarListenerLoadQueue.unshift(listenerPayload);
+				}
+			} else {
+				window.__ElevarDataLayerQueue.push(transformedEnrichedItem);
+				if (window.__ElevarIsListenerListening) {
+					window.dispatchEvent(getListenerNotifyEvent());
+				} else {
+					window.__ElevarListenerLoadQueue.push(listenerPayload);
+				}
+			}
+			if (window.__ElevarIsContextSet) {
+				while (window.__ElevarDataLayerQueue.length > 0) {
+					window.dataLayer.push(window.__ElevarDataLayerQueue.shift());
+				}
+			}
+		}
+
+		const configElement = document.getElementById("elevar-dl-aat-config");
+
+		if (!configElement) {
+			console.error("Elevar: AAT Config element not found");
+			return;
+		}
+
+		const config = JSON.parse(configElement.textContent);
+
+		const script = document.createElement("script");
+		script.type = "text/javascript";
+		script.src = config.data_layer_aat_script;
+
+		script.onerror = () => {
+			console.error("Elevar: AAT JS script failed to load");
+		};
+		script.onload = async () => {
+			if (!window.ElevarGtmSuiteAAT) {
+				console.error("Elevar: `ElevarGtmSuiteAAT` is not defined");
+				return;
+			}
+
+			await window.ElevarGtmSuiteAAT.handlers.register({
+				apexDomain: config.apex_domain,
+				isConsentEnabled: config.consent_enabled
+			});
+		};
+
+		window.addEventListener('DOMContentLoaded', function() {
+			document.head.appendChild(script);
+		}, {once: true});
+	})();
+</script>
+
+<script src="https://www.dwin1.com/19038.js" type="text/javascript" defer="defer"></script>
+
+<script src="https://script.tapfiliate.com/tapfiliate.js" type="text/javascript" async></script>
+<script type="text/javascript">
+	(function(t,a,p){t.TapfiliateObject=a;t[a]=t[a]||function(){ (t[a].q=t[a].q||[]).push(arguments)}})(window,'tap');
+
+	tap('create', '36719-c4aed1', { integration: "javascript" });
+	tap('detect');
+</script>
+</head>
+
+<body class="bg--cotton">
+	<div id="menu">
+	<div id="menu__bar" class="color--cotton bg--black flex flex-row md:flex-col justify-between items-center md:pb3">
+		<a href="/" class="hidden md:block"><img src="/graphics/monogram_2x.png" alt="soniareisin" class="w-full h-auto" width="161" height="156"></a>
+		<div class="cursor-pointer menu__toggle" onclick="window.menuToggle();"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="27.5303" y1="4.53033" x2="4.90291" y2="27.1577" stroke="currentColor" stroke-width="1.5"/>
+<line x1="27.5303" y1="4.53033" x2="4.90291" y2="27.1577" stroke="currentColor" stroke-width="1.5"/>
+<line x1="27.4697" y1="27.5303" x2="4.84225" y2="4.90291" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+</div>
+		<a href="/" class="md:hidden"><img src="/graphics/monogram_2x.png" alt="soniareisin" id="menu__mobileLogo" class="text-center o0" width="389" height="124" style="height: 32px; width: auto;"></a>
+	</div>
+
+	<nav id="menu__content" class="color--cotton bg--black h-full flex flex-col lg:justify-between scroll-y">
+		<ul class="font-menu-lg" style="flex-grow: 4;">
+			<li class="mb3"><a href="https://www.olsuss.com/">Olsuss</a></li>
+			<li class="mb3"><a href="#">Make up</a></li>
+			<li class="mb3"><a href="#">Contact</a></li>
+		</ul>
+		<ul class="font-menu-sm mt5 mb5" style="flex-grow: 1;">
+			<li class="mb3"><a href="#">Media</a></li>
+			<li class="mb3"><a href="#">Shipping &amp; Returns</a></li>
+			<li class="mb3"><a href="#">Common Questions</a></li>
+		</ul>
+		<footer>
+			<div class="mb3 flex">
+				<a href="https://www.instagram.com/soniareisin/" target="_blank" class="mr3"><img src="/graphics/soc_inst.svg" alt="Instagram" width="20" height="19"></a>
+				
+			</div>
+			<p class="font-body-sm font-weight-lt">Copyright &copy; 2023 Sonia Reisin. All rights reserved.</p>
+		</footer>
+	</nav>
+</div>
+	<div class="featuredProductTags hidden lg:inline-flex flex-row" onmouseleave="window.__featuredProductHoverTimeout = setTimeout(() => { this.classList.remove('featuredProductTags--open'); }, 1000);">
+	<button aria-label="product menu" class="button button--smallRound featuredProductTags__toggle flex items-center font-cta-sm" onmouseenter="clearTimeout(window.__featuredProductHoverTimeout); this.parentElement.classList.add('featuredProductTags--open');"><svg width="19" height="3" viewBox="0 0 19 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="9.5" cy="1.5" r="1.5" fill="currentColor"/>
+<circle cx="17.5" cy="1.5" r="1.5" fill="currentColor"/>
+<circle cx="1.5" cy="1.5" r="1.5" fill="currentColor"/>
+</svg>
+</button>
+
+	<div class="featuredProductTags__tags flex flex-row">
+		<a href="#" class="button button--small font-cta-sm " onclick="this.parentElement.classList.remove('featuredProductTags--open');">Home</a>
+		<a href="#" class="button button--small font-cta-sm " onclick="this.parentElement.classList.remove('featuredProductTags--open');">About</a>
+		<a href="#" class="button button--small font-cta-sm " onclick="this.parentElement.classList.remove('featuredProductTags--open');">Projects</a>
+	</div>
+</div>
+
+<script>
+'use strict';
+(function() {
+
+	let observer;
+	document.addEventListener('pjax:success', function() {
+		const hero = document.querySelector('.homeHero');
+		if(!hero) return;
+		
+		const tags = document.querySelector('.featuredProductTags');
+		if(observer) observer.disconnect();
+		observer = new IntersectionObserver(function(entries) {
+			for(const entry of entries) {
+				tags.classList.toggle('featuredProductTags--forceOpen', entry.isIntersecting);
+			}
+		});
+
+		observer.observe(hero);
+	});
+})();
+</script>
+
+
+	<div id="body__contentWrapper">
+		<div id="body__content">
+			<main>
+				
+				<script>
+				'use strict';
+					(function() {
+						document.addEventListener('pjax:success', function() {
+	const hoverText = document.querySelector('.productLinkHoverText');
+	const onMouseMove = function(event) {
+		hoverText.style.top = `${event.pageY}px`;
+		if(event.pageX + hoverText.clientWidth > window.innerWidth) {
+			hoverText.classList.add('productLinkHoverText--reverse');
+			hoverText.style.right = `${window.innerWidth - event.pageX}px`;
+			hoverText.style.left = 'unset';
+		} else {
+			hoverText.classList.remove('productLinkHoverText--reverse');
+			hoverText.style.left = `${event.pageX}px`;
+			hoverText.style.right = 'unset';
+		}
+	};
+
+	window.addEventListener('mousemove', onMouseMove);
+	let hoverTransition;
+	document.querySelectorAll('.productLink').forEach((el) => {
+		el.addEventListener('mouseenter', function(event) {
+			clearTimeout(hoverTransition);
+			hoverText.style.opacity = 1;
+			hoverText.style.display = 'flex';
+		});
+		el.addEventListener('mouseleave', function(event) {
+			hoverText.style.opacity = 0;
+			hoverTransition = setTimeout(function() {
+				hoverText.style.display = 'none';
+			}, 200);
+		});
+	});
+
+	document.addEventListener('pjax:send', function() {
+		window.removeEventListener('mousemove', onMouseMove);
+	}, {once: true});
+}, {once: true});
+					})();
+					(function() {
+						document.addEventListener('pjax:success', function() {
+	function mod(n, m) {
+		return ((n % m) + m) % m;
+	}
+
+	document.querySelectorAll('.pressQuotes').forEach(function(carousel) {
+		const quotes = carousel.querySelectorAll('.pressQuotes__quote');
+		const navLogos = carousel.querySelectorAll('.pressQuotes__navLogo');
+		const mobileLogos = carousel.querySelectorAll('.pressQuotes__mobileLogo');
+		const indicators = carousel.querySelectorAll('.pressQuotes__indicator');
+
+		const container = carousel.querySelector('.pressQuotes__container');
+
+		let visible = 0;
+		let transitioning = false;
+
+		const updateVisibility = function(hideIndex, showIndex, right) {
+			transitioning = true;
+			const showQuote = quotes[showIndex];
+			const hideQuote = quotes[hideIndex];
+
+			showQuote.style.transition = 'none';
+			showQuote.style.transform = `translateX(${right ? '100%' : '-100%'})`;
+			hideQuote.style.transition = 'none';
+			hideQuote.style.transform = 'translateX(0%)';
+
+			// trigger reflow, more reliable than setTimeout
+			showQuote.offsetHeight;
+			
+			showQuote.addEventListener('transitionend', () => {
+				transitioning = false;
+			}, {once: true});
+			showQuote.style.transition = 'transform 0.8s cubic-bezier(0.65, 0, 0.55, 1), opacity 0.5s linear';
+			showQuote.style.transform = 'translateX(0%)';
+			showQuote.style.opacity = 1;
+
+			hideQuote.style.transition = 'transform 0.8s cubic-bezier(0.65, 0, 0.55, 1), opacity 0.5s linear';
+			hideQuote.style.transform = `translateX(${right ? '-100%' : '100%'})`;
+			hideQuote.style.opacity = 0;
+
+			for(const logo of navLogos) {
+				logo.style.opacity = logo.dataset.index == visible ? 1 : 0.4;
+			}
+			for(const logo of mobileLogos) {
+				logo.style.opacity = logo.dataset.index == visible ? 1 : 0;
+			}
+			for(const indicator of indicators) {
+				indicator.style.opacity = indicator.dataset.index == visible ? 1 : 0.4;
+			}
+		};
+
+		function slidePrev() {
+			if(transitioning) return;
+
+			const old = visible;
+			visible = mod(visible - 1, quotes.length);
+			updateVisibility(old, visible, false);
+		}
+
+		function slideNext() {
+			if(transitioning) return;
+
+			const old = visible;
+			visible = mod(visible + 1, quotes.length);
+			updateVisibility(old, visible, true);
+		}
+
+		function slideIndex(i) {
+			if(i == visible) return;
+			if(transitioning) return;
+
+			const old = visible;
+			visible = mod(i, quotes.length);
+			updateVisibility(old, visible, old < visible);
+		}
+
+		let interactionTimeout = null;
+		function cancelAuto() {
+			clearInterval(autoAdvance);
+			autoAdvance = null;
+
+			clearTimeout(interactionTimeout);
+			interactionTimeout = setTimeout(initAuto, 20000);
+		}
+
+		let autoAdvance = null;
+		function initAuto() {
+			autoAdvance = setInterval(function() {
+				slideNext();
+			}, 8000);
+		}
+
+		initAuto();
+
+
+		const SWIPE_THRESHOLD = 25;
+		let touchStartX = 0;
+		container.addEventListener('touchstart', (event) => {
+			touchStartX = event.changedTouches[0].screenX;
+		}, {passive: true});
+		container.addEventListener('touchend', (event) => {
+			const diff = event.changedTouches[0].screenX - touchStartX;
+			if(diff > SWIPE_THRESHOLD) {
+				slidePrev();
+				cancelAuto();
+			} else if(diff < -SWIPE_THRESHOLD) {
+				slideNext();
+				cancelAuto();
+			}
+		}, {passive: true});
+
+		navLogos.forEach((logo) => {
+			logo.addEventListener('mouseenter', (event) => {
+				slideIndex(event.target.dataset.index);
+				cancelAuto();
+			});
+			logo.addEventListener('mousemove', (event) => {
+				slideIndex(event.target.dataset.index);
+				cancelAuto();
+			});
+		});
+
+		indicators.forEach((indicator) => {
+			indicator.addEventListener('click', (event) => {
+				slideIndex(event.target.dataset.index);
+				cancelAuto();
+			});
+		});
+
+
+
+	});
+}, {once: true});
+
+					})();
+					(function() {
+						function closeAllFolds(exclude) {
+	document.querySelectorAll('.accordion__fold').forEach((f) => {
+		if(f == exclude) return;
+		f._toggle(false);
+	});
+}
+
+function initAccordionFold(fold) {
+	const body = fold.querySelector('.accordion__foldBody');
+	fold._toggle = function(open) {
+		if(open == undefined) open = fold.classList.contains('accordion__fold--closed');
+		if(open == true) closeAllFolds(fold);
+
+		fold.classList.toggle('accordion__fold--closed', !open);
+		fold.setAttribute('aria-expanded', open);
+		body.style.transition = 'height 0.5s';
+		if(!open) {
+			body.style.height = '0px';
+		} else {
+			body.style.height = body.firstElementChild.getBoundingClientRect().height + 'px';
+		}
+	}
+	fold.addEventListener('click', function() {
+		fold._toggle();
+	});
+	fold.addEventListener('keydown', function(event) {
+		if(event instanceof KeyboardEvent && event.key !== 'Enter' && event.key !== ' ') return;
+		fold._toggle();
+		event.preventDefault(); // prevent space key from scrolling downwards
+	});
+}
+
+document.addEventListener('pjax:success', function() {
+	document.querySelectorAll('.accordion__fold').forEach(initAccordionFold);
+	closeAllFolds();
+}, {once: true});
+
+window.addEventListener('resize', function() {
+	this.document.querySelectorAll('.accordion__fold').forEach(function(fold) {
+		if(fold.classList.contains('accordion__fold--closed')) return;
+		const body = fold.querySelector('.accordion__foldBody');
+		body.style.height = body.firstElementChild.getBoundingClientRect().height + 'px';
+	});
+});
+
+					})();
+				</script>
+
+				
+
+
+
+
+<div class="block lg:hidden">
+	
+<div class="marquee  block overflow-h color--black bb1--gray3">
+	<div class="marquee__container inline-block whitespace-nowrap" style="animation-duration: 25.5s;">
+		<span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s comfortable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s durable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s sustainable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s safe</span><span class="marquee__item eyebrow-sm pl4 pr4">It comes from a tree</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s oh so springy</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s comfortable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s durable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s sustainable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s safe</span><span class="marquee__item eyebrow-sm pl4 pr4">It comes from a tree</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s oh so springy</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s comfortable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s durable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s sustainable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s safe</span><span class="marquee__item eyebrow-sm pl4 pr4">It comes from a tree</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s oh so springy</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s comfortable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s durable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s sustainable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s safe</span><span class="marquee__item eyebrow-sm pl4 pr4">It comes from a tree</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s oh so springy</span>
+	</div>
+</div>
+
+</div>
+
+<div class="homeHero__outerContainer">
+<header class="homeHero content-fullbleed justify-center">
+	<div class="homeHero__images w-full relative bg--black overflow-h">
+			<!-- <img src="/img/HOME_HERO_01_640x.jpg" width="640" height="360" class="homeHero__image absolute t0 l0 r0 b0 w-full h-full fit--cover"  alt="Wide shot of woman lying on bed with hand on hip" style="object-position: 93.359375% 45.520833333333336%;"
+				>
+			<img src="/img/HOME_HERO_02_640x.jpg" width="640" height="360" class="homeHero__image absolute t0 l0 r0 b0 w-full h-full fit--cover"  alt="Person lays on mattress" style="object-position: 70.703125% 42.1875%;"
+				> -->
+			<img src="/img/HOME_HERO_03_640x.jpg" width="640" height="360" class="homeHero__image absolute t0 l0 r0 b0 w-full h-full fit--cover"  alt="Person on mattress" style="object-position: 85.234375% 46.90972222222222%;">
+			<img src="/img/HOME_HERO_04_640x.jpg" width="640" height="360" class="homeHero__image absolute t0 l0 r0 b0 w-full h-full fit--cover"  alt="Sheep standing behind the mattress" style="object-position: 50.0% 50.0%;">
+		<div class="homeHero__logo flex items-center justify-center">
+			<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- <svg
+   width="1044"
+   height="324"
+   viewBox="0 0 1044 324"
+   fill="none"
+   version="1.1"
+   id="svg64"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+   <defs>
+  <mask id="mask_a" style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;">
+    <path stroke-width="20"
+       d="m 222.4865,105.14597 -32.20592,94.67934 c 0,0 -11.70066,16.09838 -28.99195,13.28126 -25.25937,-4.1153 -24.63907,-27.88402 -24.63907,-27.88402 l 18.19843,-65.3156 c 0,0 18.82471,-19.39629 35.50366,-12.75487 22.95556,9.14071 21.45813,21.89261 21.45813,21.89261 0,0 -14.13946,46.11263 -14.00987,49.28659 1.26795,31.05512 20.84229,28.07825 31.49299,28.52982 25.97542,1.10132 27.4902,-15.93531 27.4902,-15.93531 l 26.06825,-87.71417 c 0,0 4.61655,-21.28029 10.13783,-27.99613 5.52127,-6.71584 -10.36366,33.00754 -5.71673,41.82642 6.14688,11.66547 16.70355,30.58394 21.81289,31.96055 5.10934,1.37661 -3.17793,11.91308 -1.20475,22.39814 1.97318,10.48507 5.78384,27.46706 23.13143,27.68802 17.34758,0.22097 26.17863,-1.66599 35.61237,-22.80035 9.43375,-21.13437 40.42388,-142.445831 40.42388,-142.445831 L 369.89232,173.03915 c 0,0 5.41372,22.53394 26.82264,19.68997 21.40891,-2.84397 23.88917,-1.98236 23.88917,-1.98236 L 468.64316,30.219898 442.09197,122.95835 c 0,0 11.69874,-14.51865 28.08617,-13.02402 16.38744,1.49464 28.15337,9.29163 26.42956,24.79382 -1.72381,15.50219 -1.72507,37.93922 11.10938,45.78287 17.49727,10.6933 40.01398,-10.86795 40.01398,-10.86795 0,0 -14.0445,37.43114 -14.84733,55.24557 -0.45746,10.15094 0.62787,32.18197 21.62565,30.6746 20.99778,-1.50737 22.80496,-31.64205 22.80496,-31.64205 L 565.761,186.92311 551.08606,165.25607 594.46757,20.60049 558.38246,146.36403 c 0,0 9.41255,38.38371 29.06564,31.99512 19.6531,-6.38858 26.69275,-19.15464 26.69275,-19.15464 l 20.62657,-71.160783 c 0,0 15.12776,-21.111361 31.97002,-15.404317 16.84227,5.707044 25.71321,19.182255 24.34963,27.6902 -1.36358,8.50794 -19.95832,64.0245 -19.95832,64.0245 0,0 -12.81395,19.39987 -31.91253,9.73641 -19.09859,-9.66347 -22.28452,-20.18426 -22.28452,-20.18426 l 58.20459,4.93613 c 0,0 16.78528,19.60446 32.03898,11.05968 15.2537,-8.54477 20.48621,-25.17131 20.48621,-25.17131 l 24.1838,-74.939509 c 0,0 10.29075,-20.55677 30.38053,-15.402432 20.08979,5.154338 23.07319,29.821122 23.07319,29.821122 l 8.75954,-25.354999 -24.26789,87.834678 c 0,0 -17.78042,19.56825 -34.2126,14.86364 -16.43218,-4.70462 -22.55383,-18.79111 -22.55383,-18.79111 l 64.05769,-2.83752 c 0,0 8.99822,19.64221 26.44916,18.04484 15.66559,-1.43394 25.99216,-13.83628 25.99216,-13.83628 l -3.83107,13.18595 34.80168,-119.309121 -7.54482,21.186566 c 0,0 14.47634,-19.031677 30.92771,-14.437041 16.45136,4.594637 25.17692,9.79083 26.51645,20.908706 1.33953,11.117875 -22.60017,87.99064 -22.60017,87.99064 L 937.27619,50.557672 c 0,0 14.39874,-15.058708 32.09797,-11.274444 17.69923,3.784264 24.0602,12.427953 23.77295,30.831133 -0.28724,18.40318 -9.82593,31.330799 -9.82593,31.330799 0,0 -6.34136,15.37528 6.80458,29.18379 11.13884,11.70023 32.60224,12.51823 32.60224,12.51823 0,0 13.6293,0.49916 14.1376,16.8664 0.5083,16.36724 -16.243,20.04219 -16.243,20.04219 l -800.95957,69.17608"
+       class="logoMask" id="mask_main" />
+    <path
+       d="m 165.03335,74.294175 c 0,0 21.00391,-56.953881 -21.86246,-62.422886 -35.79145,-4.5663698 -42.89208,7.563144 -51.046561,16.537987 -8.154479,8.974843 -29.336028,34.097258 -18.968517,62.406861 10.36751,28.309603 38.330548,35.060473 38.330548,35.060473 0,0 -68.312754,-15.62051 -94.25261,65.69188 -25.9398554,81.31238 48.206569,117.63588 48.206569,117.63588 0,0 97.009511,31.94161 128.759261,-66.84694"
+       class="logoMask" id="mask_e" stroke-width="25" />
+  </mask>
+  <mask id="mask_b" style="fill:none;stroke:#FFFFFF;stroke-linecap:round;stroke-linejoin:round;">
+   <path
+       d="M 317.95393,87.383682 551.49238,67.349535"
+       class="logoMask" id="mask_cross" stroke-width="25" />
+ </mask>
+</defs>
+  <g fill="#F8F7ED" style="mask: url(#mask_a);">
+    <path
+       d="M203.88 239.786C202.6 237.601 200.51 235.974 198.036 235.234C197.241 235.052 196.427 234.958 195.611 234.954C193.44 234.923 191.32 235.595 189.586 236.864C187.852 238.133 186.603 239.926 186.036 241.96C177.155 273.023 155.038 295.062 125.379 302.427C118.167 304.194 110.758 305.09 103.32 305.095C91.766 305.109 80.3238 302.9 69.6547 298.595C58.9856 294.291 49.3013 287.977 41.1616 280.018C11.2257 250.39 17.1505 208.274 31.3215 181.113C39.0827 166.484 49.7312 154.288 61.9619 145.858C74.1926 137.428 87.971 132.966 101.588 132.966C104.602 132.965 107.613 133.179 110.596 133.605C111.013 133.669 111.434 133.698 111.855 133.695C114.199 133.624 116.447 132.772 118.22 131.281C119.993 129.791 121.184 127.754 121.591 125.512C121.917 123.036 121.224 120.536 119.663 118.553C118.102 116.57 115.799 115.264 113.252 114.918C80.4177 110.221 80.5679 79.977 81.3994 70.8185C82.5146 57.9774 87.4454 45.7265 95.5935 35.5521C104.486 24.8355 115.851 19.1856 128.474 19.1856H129.791C142.195 19.4547 152.058 24.3534 157.509 33.0075C163.423 42.3117 163.365 55.5394 157.359 67.5564C156.756 68.7097 156.398 69.969 156.307 71.2593C156.216 72.5496 156.393 73.8446 156.828 75.0671C157.234 76.2132 157.878 77.2661 158.721 78.1608C159.563 79.0555 160.585 79.7728 161.725 80.2684C163.039 80.8566 164.47 81.1588 165.917 81.154C167.749 81.1534 169.547 80.6756 171.123 79.7706C172.7 78.8655 173.997 77.5664 174.88 76.0087C183.842 57.6693 183.472 37.895 173.898 23.053C165.282 8.9734 149.298 0.633229 130.011 0.0615234H128.856C90.5811 0.0615234 64.7106 35.3167 61.8695 69.3949C60.5067 86.2097 63.9715 100.401 72.1831 111.712C72.7419 112.429 73.125 113.26 73.3031 114.142C73.4813 115.024 73.4497 115.933 73.2109 116.802C72.9286 117.6 72.4641 118.326 71.8522 118.926C71.2403 119.526 70.4966 119.984 69.6769 120.265C46.7514 129.301 26.8866 147.931 13.7666 172.739C-8.616 215.337 -3.3957 262.631 27.1061 293.156C47.288 312.806 74.676 323.885 103.262 323.961C106.404 323.961 109.568 323.826 112.698 323.557C118.633 323.158 124.505 322.124 130.207 320.474H130.276C167.118 311.282 194.236 284.468 204.665 246.893C205.043 245.719 205.169 244.482 205.034 243.26C204.899 242.037 204.506 240.855 203.88 239.786Z"
+       />
+    <path
+       d="m 594.57031,11.142578 c -1.841,0.0181 -3.63128,0.597804 -5.11328,1.658203 -1.482,1.060399 -2.58153,2.548302 -3.14453,4.25 l -25.90625,88.333989 c -3.465,12.40998 -8.01514,25.67087 -12.36914,38.50585 l -0.64649,1.90626 -1.05078,3.09374 c -2.10199,6.255 -4.28472,12.73254 -6.38672,19.14454 l -0.0684,0.22656 -0.16211,0.17773 c -1.863,2.067 -4.16038,3.72719 -6.73438,4.86719 -2.575,1.14 -5.36922,1.73605 -8.19922,1.74805 -1.957,0.001 -3.90439,-0.2838 -5.77539,-0.8418 l -1.55859,-0.44727 c -2.506,-0.71399 -4.84014,-1.90495 -6.86914,-3.50195 -2.028,-1.597 -3.70932,-3.56973 -4.94532,-5.80273 -2.51699,-4.215 -2.40324,-10.86198 -1.15624,-15.91797 l -0.0918,-0.0566 0.2539,-0.85156 c 2.681,-9.071 1.56086,-18.80418 -3.11914,-27.07618 -4.67899,-8.27299 -12.53633,-14.4168 -21.86132,-17.09179 l -1.57032,-0.45899 c -3.06999,-0.878 -6.25798,-1.31206 -9.45898,-1.28906 -1.339,0 -2.70336,0.0665 -4.19336,0.18945 h -0.64648 c -6.27692,0.61333 -6.16602,-1.24414 -6.16602,-1.24414 l 4.75781,-16.533201 c 0,0 -15.62523,54.681251 15.02539,-52.115234 v -0.05664 c 0,0 0.48349,-2.006004 0.39649,-3.033203 -0.088,-1.027199 -0.3953,-2.025288 -0.9043,-2.929687 -0.54,-0.954299 -1.28178,-1.788667 -2.17578,-2.447266 -0.893,-0.658499 -1.91777,-1.1261 -3.00977,-1.375 -2.10299,-0.576699 -4.35567,-0.321208 -6.26367,0.712891 -1.908,1.034099 -3.31511,2.760583 -3.91211,4.800781 l -11.67578,39.964844 -5.47485,18.798828 -5.03515,17.251947 -4.27344,14.39258 v 0.0684 0.0566 c -0.132,0.299 -0.24299,0.60497 -0.33399,0.91797 l -15.83593,52.68555 c -1.216,4.01899 -3.73751,7.5485 -7.1875,10.0625 -3.45,2.515 -7.64595,3.88053 -11.96094,3.89453 -1.958,0 -3.90439,-0.28184 -5.77539,-0.83984 l -1.5586,-0.46094 c -2.52499,-0.67 -4.8854,-1.82644 -6.9414,-3.39844 -2.057,-1.572 -3.76725,-3.52891 -5.03125,-5.75391 -1.263,-2.22599 -2.05322,-4.67417 -2.32422,-7.20117 -0.27,-2.52699 -0.015,-5.08172 0.75,-7.51172 l 14.2168,-46.94726 5.26562,-18.720703 8.85941,-29.986328 8.08398,-27.53125 c 0.587,-2.037898 0.318,-4.217502 -0.75,-6.0625 -1.067,-1.844999 -2.84536,-3.204398 -4.94336,-3.779297 -0.721,-0.1964 -1.4678,-0.294116 -2.2168,-0.291016 -1.79399,-0.0074 -3.54251,0.551904 -4.97851,1.595703 -1.436,1.043899 -2.48247,2.514402 -2.98047,4.1875 l -10.23047,34.234375 -11.9668,41.769526 -4.22656,13.95508 v 0.0684 0.0664 c -0.16,0.365 -0.2943,0.74009 -0.4043,1.12109 l -15.82226,52.6875 c -1.559,4.869 -4.98151,8.9718 -9.5625,11.4668 -2.923,1.599 -6.21922,2.44408 -9.57422,2.45508 -1.954,-0.011 -3.89639,-0.27693 -5.77539,-0.79492 l -1.58203,-0.46094 c -2.52,-0.679 -4.87202,-1.84474 -6.91602,-3.42774 -2.044,-1.584 -3.73947,-3.55116 -4.98047,-5.78515 -1.27599,-2.23 -2.08114,-4.68476 -2.36914,-7.21875 -0.287,-2.535 -0.0497,-5.09893 0.69532,-7.54492 v -0.0781 l -0.10547,-1.12109 h 0.60156 c 3.465,-15.89599 -1.27063,-21.81509 -8.76563,-28.95508 -0.497,-0.527 -0.98179,-1.00867 -1.46679,-1.51367 -2.364,-2.291 -4.52875,-4.76916 -6.46875,-7.41016 -7.77199,-11.71399 -10.3122,-21.82608 -7.78321,-30.951171 l 0.69336,-2.43164 c 1.435,-4.101496 3.50282,-7.969054 6.13282,-11.46875 0.663,-0.7718 1.15526,-1.666761 1.44726,-2.63086 0.292,-0.964099 0.377,-1.97731 0.25,-2.974609 -0.138,-1.100899 -0.50136,-2.162401 -1.06836,-3.125 -0.567,-0.962599 -1.32637,-1.805617 -2.23437,-2.478516 -1.409,-0.967999 -3.09141,-1.490087 -4.81641,-1.492187 -1.313,0.0108 -2.60439,0.315272 -3.77539,0.888672 -1.172,0.573499 -2.19147,1.402222 -2.98047,2.419921 -8.23499,10.38039 -11.70063,23.471885 -15.01562,36.13867 -0.566,2.153 -1.15391,4.37311 -1.75391,6.53711 l -3.23437,11.20899 c -0.97,3.19499 -1.96447,6.43526 -2.98047,9.69726 -1.663,5.347 -3.37208,10.88447 -4.95508,16.35547 -0.122,0.429 -0.20319,0.86755 -0.24219,1.31055 v 0.10156 0.10156 l -9.97851,32.85547 c -0.733,2.461 -1.96219,4.755 -3.61719,6.75 -1.655,1.995 -3.70149,3.65009 -6.02149,4.87109 -2.31999,1.22 -4.86814,1.98229 -7.49414,2.23828 -2.62599,0.257 -5.27678,0.003 -7.80078,-0.74414 h -0.082 l -1.1543,-0.45898 c -2.51199,-0.678 -4.86025,-1.8353 -6.90625,-3.4043 -2.04599,-1.569 -3.74972,-3.51742 -5.01172,-5.73242 -1.29699,-2.214 -2.13207,-4.6556 -2.45507,-7.18359 -0.323,-2.527 -0.12774,-5.09188 0.57226,-7.54688 l 14.22852,-46.96875 5.10547,-17.5664 c 0.586,-2.041 0.31414,-4.22232 -0.75586,-6.07032 -1.069,-1.84699 -2.85018,-3.2082 -4.95117,-3.7832 -0.718,-0.191 -1.45908,-0.29002 -2.20508,-0.29102 -1.798,-0.002 -3.54743,0.56715 -4.98242,1.61915 -1.434,1.05299 -2.47585,2.53093 -2.96485,4.21093 v 0.12305 l -0.0684,0.11133 -0.40429,0.71875 c -0.048,0.237 -0.16022,0.45667 -0.32422,0.63867 -0.125,0.13 -0.27632,0.23373 -0.44532,0.30273 -0.169,0.07 -0.35215,0.10361 -0.53515,0.0996 -0.762,0 -1.53532,-0.5377 -3.69531,-2.0957 l -1.29493,-0.92969 c -3.62599,-2.62999 -7.70964,-4.60558 -12.05664,-5.830074 l -1.55859,-0.458984 c -4.607,-1.303299 -9.43413,-1.710465 -14.20313,-1.197266 -4.76899,0.513299 -9.38689,1.936504 -13.58789,4.187494 -4.19999,2.251 -7.90162,5.2857 -10.89062,8.92969 -2.988,3.644 -5.20544,7.82569 -6.52344,12.30469 L 130.322,176.18564 c -1.403,4.44999 -1.85604,9.13181 -1.33204,13.75781 0.524,4.62599 2.01487,9.09849 4.38086,13.14648 2.249,4.095 5.3183,7.71077 9.0293,10.63477 3.711,2.925 7.98908,5.09758 12.58008,6.39258 l 1.57031,0.44922 c 3.386,1.011 6.91013,1.52815 10.45313,1.53515 1.062,0 2.1467,-4.8e-4 3.2207,-0.14648 9.78699,-0.981 18.7823,-5.66888 25.0293,-13.04688 0.588,-0.698 1.32701,-1.26043 2.16601,-1.64843 0.838,-0.387 1.7546,-0.58975 2.6836,-0.59375 1.54199,0.026 3.03472,0.52954 4.26171,1.43554 3.78,3.069 8.19527,5.31308 12.94727,6.58008 l 1.58203,0.45898 c 3.368,1.005 6.86858,1.52788 10.39258,1.54688 0.982,0 1.96555,-5e-5 2.93555,-0.12305 7.33199,-0.587 14.3061,-3.32552 19.99609,-7.85351 5.68899,-4.527 9.82447,-10.6292 11.85547,-17.49219 l 15.82226,-52.6875 c 0.166,-0.489 0.28738,-0.99195 0.35938,-1.50195 v -0.0781 -0.0898 -0.13477 c 0.936,-3.00399 1.97402,-4.39453 3.29102,-4.39453 0.28799,0.003 0.57026,0.0779 0.82226,0.21289 0.252,0.135 0.46409,0.32655 0.62109,0.56055 0.512,0.501 0.94149,1.07708 1.27149,1.70508 0.07,0.135 0.14647,0.26558 0.23047,0.39257 2.56499,3.792 5.55874,7.29156 8.92773,10.43555 l 1.41992,1.42383 c 5.359,4.641 5.67075,5.73921 3.71875,14.1582 v 0.31446 0.18945 c -2.48699,8.98099 -1.24029,18.55044 3.47071,26.64844 4.71099,8.09699 12.51176,14.07453 21.71875,16.64453 h 0.0586 l 1.1543,0.46094 c 3.36899,0.99899 6.87153,1.51243 10.39453,1.52343 1.063,0 2.1467,-0.0565 3.2207,-0.14648 5.041,-0.482 9.92299,-1.97758 14.33399,-4.39258 5.72399,-3.033 10.49473,-7.51571 13.80273,-12.9707 l 0.80664,-1.32227 1.05078,1.11914 c 4.586,5.033 10.54927,8.70027 17.19727,10.57227 l 1.15625,0.45898 c 3.43699,0.994 7.00285,1.50367 10.58984,1.51367 1.016,0 2.04383,-7.6e-4 3.04883,-0.13476 4.373,-0.381 8.64061,-1.51833 12.59961,-3.36133 l 0.63672,-0.30469 0.55469,0.41602 c 0.77699,0.572 1.6415,1.02198 2.5625,1.33398 0.71299,0.182 1.44659,0.2753 2.18359,0.2793 1.797,0.003 3.54352,-0.56328 4.97851,-1.61328 1.434,-1.05 2.4768,-2.52708 2.9668,-4.20508 l 20.29297,-65.7793 v -0.11132 -0.10157 c 1.916,-3.23099 4.675,-5.91525 8,-7.78125 3.326,-1.866 7.09846,-2.84575 10.93945,-2.84375 1.818,-0.004 3.62882,0.22836 5.38282,0.69336 h 0.0586 l 1.22266,0.45899 c 4.95099,1.471 9.14256,4.71236 11.72656,9.06836 2.583,4.35499 3.3664,9.50053 2.19141,14.39453 l -0.83204,2.90429 c -1.40199,4.45 -1.85507,9.13087 -1.33007,13.75586 0.524,4.626 2.0139,9.10045 4.3789,13.14844 2.264,4.118 5.36052,7.75064 9.10352,10.68164 3.74199,2.931 8.05369,5.10091 12.67969,6.37891 l 1.57031,0.45898 c 3.36899,1.002 6.87153,1.51639 10.39453,1.52539 1.062,0 2.14866,-7.6e-4 3.22266,-0.13476 1.08599,-0.097 2.16342,-0.24999 3.23242,-0.45899 l 1.82617,-0.33789 -0.49805,1.73828 c -3.32599,11.64699 -5.7737,21.91473 -7.4707,31.38672 -2.749,15.21199 2.66578,28.97846 14.13476,35.93946 4.729,2.94799 10.23643,4.50537 15.85743,4.48437 0.889,0 1.78968,-5e-5 2.67968,-0.12305 5.142,-0.524 10.06827,-2.29348 14.32227,-5.14648 l 0.44922,-0.52539 0.0684,-0.0684 0.0703,-0.0664 c 16.34198,-13.33998 11.30684,-39.95173 3.46484,-66.7207 -0.263,-0.658 -0.35643,-1.36931 -0.27343,-2.07031 0.082,-0.701 0.33809,-1.37108 0.74609,-1.95508 0.488,-0.568 1.11045,-1.01388 1.81445,-1.29688 0.705,-0.283 1.46952,-0.39612 2.22852,-0.32812 h 0.86523 0.082 c 1.499,0.221 3.01135,0.32822 4.52735,0.32422 1.028,0 2.06647,2.3e-4 3.10547,-0.13477 5.35499,-0.447 10.54345,-2.03911 15.18945,-4.66211 4.647,-2.62199 8.6375,-6.20791 11.6875,-10.5039 l 0.8418,-1.18946 0.98242,1.1211 c 4.61199,5.25599 10.70526,9.08925 17.53125,11.03125 l 1.57031,0.45898 c 3.328,0.829 6.7505,1.25086 10.1875,1.25586 1.074,0 2.13606,2.4e-4 3.16406,-0.13476 6.377,-0.38 12.50965,-2.5153 17.68164,-6.1543 0.693,-0.46 1.34049,-0.89583 2.02149,-1.29883 1.828,-1.386 4.07944,-2.1443 6.39844,-2.1543 1.44199,-0.008 2.86176,0.33229 4.13476,0.98829 2.021,1.09199 4.16372,1.95712 6.38672,2.57812 l 1.58203,0.45898 c 3.329,0.828 6.75151,1.24986 10.1875,1.25586 1.085,0 2.14807,-7.6e-4 3.16406,-0.13476 6.303,-0.463 12.36718,-2.53672 17.57618,-6.01172 5.20899,-3.475 9.37803,-8.22744 12.08203,-13.77344 l 0.75195,-1.50195 1.1543,1.23242 c 4.47699,4.763 10.20722,8.25185 16.57422,10.08984 l 1.55859,0.45899 c 3.392,1.001 6.91689,1.51344 10.46289,1.52344 1.062,0 2.14866,0.001 3.22266,-0.13282 9.78399,-0.991 18.77435,-5.67783 25.02734,-13.04882 0.586,-0.7 1.32506,-1.26535 2.16406,-1.65235 0.839,-0.388 1.7585,-0.58984 2.6875,-0.58984 1.538,0.025 3.028,0.52855 4.25,1.43555 3.795,3.07599 8.23091,5.31736 13.00391,6.56835 l 1.58203,0.45899 c 3.368,1.006 6.87054,1.52687 10.39453,1.54687 0.982,0 1.9636,-4e-5 2.9336,-0.12304 4.30099,-0.381 8.5003,-1.49021 12.40429,-3.28321 l 0.62305,-0.29101 0.55469,0.40234 c 0.738,0.536 1.55678,0.95886 2.42578,1.25586 0.882,0.152 1.77297,0.24253 2.66797,0.26953 h 0.62304 c 1.65,-0.2 3.20638,-0.85567 4.48438,-1.88867 1.277,-1.034 2.22266,-2.40241 2.72266,-3.94141 l 4.72265,-16.05273 v -0.0566 l 0.11719,-0.33594 c 0.173,-0.482 0.33466,-0.92939 0.47266,-1.40039 l 5.8789,-19.55078 c 0.081,-0.246 0.28742,-0.82909 0.35742,-1.12109 v -0.32422 l 0.27735,-0.31446 0.0684,-0.20117 14.24218,-46.9707 2.10157,-6.972656 v -0.06641 c 1.78399,-4.592796 5.26467,-8.377643 9.76367,-10.619141 4.49899,-2.241598 9.69703,-2.779564 14.58203,-1.509765 l 1.59375,0.470703 c 2.558,0.729199 4.94167,1.943067 7.01367,3.572265 2.071,1.629199 3.78869,3.640071 5.05469,5.917969 1.265,2.277798 2.05241,4.778418 2.31641,7.353516 0.26399,2.575197 -0.002,5.175293 -0.78126,7.65039 l -4.82617,16.916016 -16.35351,53.650393 c -0.54,2.07 -0.25236,4.26081 0.80664,6.13281 1.058,1.873 2.80944,3.28608 4.89844,3.95508 l 0.53125,0.0898 c 0.63499,0.12299 1.27973,0.19389 1.92773,0.21289 h 0.5332 c 1.666,-0.159 3.2443,-0.7998 4.5293,-1.8418 1.286,-1.041 2.21778,-2.43505 2.67578,-3.99805 l 27.9961,-92.078126 c 1.50399,-4.958295 4.95347,-9.146512 9.60546,-11.662109 4.652,-2.515598 10.13649,-3.158715 15.27149,-1.791016 l 1.58203,0.460937 c 5.00999,1.519799 9.23369,4.839655 11.80469,9.28125 2.44999,4.662096 3.05326,10.034215 1.69726,15.09961 l -8.99609,31.164064 c -2.37,7.72199 -1.92247,16.00146 1.26953,23.43945 0.521,1.184 1.1153,2.33813 1.7793,3.45313 2.05899,3.751 4.79798,7.11092 8.08398,9.91992 6.44499,6.166 13.67048,9.29297 21.48048,9.29297 0.84,0 1.7101,6.7e-4 2.5801,-0.11133 0.86,-0.112 1.9608,-0.13476 2.8808,-0.13476 10.83,0 15.9483,5.71791 16.2383,11.3789 0.34,6.322 -5.2187,13.29386 -16.4687,14.38086 l -1.1504,0.11328 -360.17972,31.32032 -54.65234,4.73046 c -1.664,0.137 -3.2095,0.89333 -4.3125,2.11133 -1.103,1.218 -1.67752,2.80383 -1.60352,4.42383 0.075,1.62 0.79391,3.14958 2.00391,4.26758 1.211,1.118 2.81923,1.73847 4.49023,1.73047 h 0.55469 0.57812 l 415.14063,-36.24219 1.1504,-0.10156 v 0.10156 c 3.76,-0.347 16.2492,-2.11985 23.4492,-10.08984 4.06,-4.596 5.8199,-10.48026 5.1699,-17.53125 -0.87,-9.55099 -5.4498,-16.62454 -13.5898,-21.01954 -6.93,-3.70999 -15.0095,-4.92082 -21.4395,-5.54882 -0.84,-0.115 -1.6702,-0.29039 -2.4902,-0.52539 l -1.5703,-0.44922 c -2.44,-0.725 -4.7095,-1.90185 -6.68751,-3.46485 -0.416,-0.336 -0.85577,-0.69509 -1.25977,-1.12109 -2.384,-2.266 -4.17833,-5.0501 -5.23633,-8.12109 -1.058,-3.072 -1.34861,-6.34293 -0.84961,-9.54493 v -0.0996 c 0.12,-0.72599 0.28038,-1.44629 0.48438,-2.15429 l 8.99024,-31.162114 c 2.65,-9.071291 1.5187,-18.792455 -3.15235,-27.060547 -4.673,-8.268092 -12.51328,-14.419443 -21.82227,-17.119141 l -1.57031,-0.458984 c -6.94499,-1.848798 -14.29335,-1.699464 -21.15234,0.427734 -6.86,2.127298 -12.93819,6.141946 -17.49219,11.556641 -0.533,0.763699 -1.24699,1.391078 -2.08398,1.830078 -0.836,0.439 -1.76876,0.676006 -2.71875,0.691406 -1.622,-0.048 -3.17468,-0.64776 -4.38868,-1.693359 -3.80599,-3.161197 -8.25274,-5.512498 -13.05273,-6.904297 l -1.52344,-0.4375 c -3.33299,-0.852099 -6.76199,-1.296066 -10.20898,-1.322266 -1.631,0.0017 -3.261,0.117957 -4.875,0.347657 -0.618,0.1042 -1.2431,0.15605 -1.8711,0.15625 -2.66099,0.0223 -5.23231,-0.93559 -7.19531,-2.679688 -0.99,-0.815199 -2.14081,-1.424969 -3.38281,-1.792969 -0.829,-0.272799 -1.70017,-0.412162 -2.57617,-0.414062 -1.727,0.0152 -3.40054,0.574304 -4.76953,1.595703 -1.369,1.021499 -2.35936,2.448755 -2.81836,4.064453 l -7.29883,22.914063 c -0.061,0.555199 -0.26289,1.086675 -0.58789,1.546875 l -6.25,20.759765 v 0.05664 L 859.37305,82 c -0.053,0.1246 -0.0997,0.25146 -0.13867,0.380859 l -15.81055,52.687501 c -0.733,2.461 -1.96414,4.755 -3.61914,6.75 -1.655,1.995 -3.70149,3.65009 -6.02149,4.87109 -2.31999,1.22 -4.86814,1.98228 -7.49414,2.23828 -2.62599,0.257 -5.27678,0.003 -7.80078,-0.74414 h -0.082 l -1.1543,-0.45898 c -2.51199,-0.678 -4.86025,-1.8353 -6.90625,-3.4043 -2.04599,-1.569 -3.75067,-3.51742 -5.01367,-5.73242 -1.296,-2.21 -2.12817,-4.64592 -2.45117,-7.16992 -0.323,-2.524 -0.12969,-5.08611 0.57031,-7.53711 L 817.67969,76.910156 822.75,59.378906 c 0.586,-2.040898 0.31414,-4.225167 -0.75586,-6.072265 -1.069,-1.847099 -2.84722,-3.206251 -4.94922,-3.78125 -0.717,-0.2008 -1.45908,-0.302735 -2.20508,-0.302735 -1.79899,-0.0039 -3.55037,0.564589 -4.98437,1.617188 -1.435,1.052599 -2.47589,2.532392 -2.96289,4.21289 v 0.123047 l -0.0703,0.111328 -0.40235,0.728516 c -0.047,0.2337 -0.16022,0.451706 -0.32422,0.628906 -0.126,0.1294 -0.27826,0.231282 -0.44726,0.300781 -0.169,0.0694 -0.35216,0.103763 -0.53516,0.101563 -0.762,0 -1.54731,-0.536986 -3.69531,-2.083984 -0.404,-0.3027 -0.84269,-0.617741 -1.30469,-0.931641 -3.624,-2.635397 -7.70864,-4.613345 -12.05664,-5.839844 l -1.56055,-0.458984 c -4.60599,-1.303099 -9.43022,-1.710665 -14.19921,-1.197266 -4.768,0.5134 -9.38595,1.936303 -13.58594,4.1875 -4.2,2.251298 -7.89972,5.287745 -10.88672,8.931641 -2.987,3.643896 -5.20253,7.824839 -6.51953,12.302734 l -6.69922,22.072266 v 0.134765 l -0.0801,0.123047 c -0.318,0.5302 -0.58311,1.089323 -0.78711,1.669922 l -15.81055,52.685549 c -1.46699,4.98299 -4.89206,9.20577 -9.53906,11.75976 -3.052,1.521 -6.43128,2.3238 -9.86328,2.3418 -1.859,0 -3.71105,-0.252 -5.49805,-0.75 h -0.0566 l -1.15625,-0.45898 c -1.613,-0.403 -3.16514,-1.00693 -4.61914,-1.79493 -2.86499,-1.63699 -3.52142,-6.28811 -2.48242,-9.66211 l 12.47266,-40.21093 c 1.335,-4.471 1.74779,-9.15135 1.21679,-13.777346 -0.532,-4.625996 -1.99645,-9.106245 -4.31445,-13.181641 -2.317,-4.075296 -5.44046,-7.665662 -9.18945,-10.568359 -3.749,-2.902597 -8.05116,-5.060658 -12.66016,-6.347656 l -1.58203,-0.447266 c -3.407,-0.964399 -6.93733,-1.454731 -10.48633,-1.457031 -6.02899,-0.0229 -11.95855,1.500018 -17.18554,4.416015 -4.256,2.130898 -8.0103,5.093676 -11.0293,8.701172 -3.019,3.607597 -5.23668,7.782223 -6.51367,12.261719 l -14.9336,47.865233 c -0.365,1.227 -0.65695,2.47342 -0.87695,3.73242 v 0.0684 0.0566 l -4.37695,14.57227 c -1.239,3.96799 -3.7443,7.45317 -7.1543,9.95117 -3.411,2.498 -7.55127,3.88022 -11.82227,3.94922 -1.91299,-0.001 -3.81448,-0.27264 -5.64648,-0.80664 l -1.56055,-0.44922 c -2.57299,-0.649 -4.97745,-1.80925 -7.06445,-3.40625 -2.088,-1.598 -3.8125,-3.598 -5.0625,-5.875 -1.414,-2.69 -2.22863,-5.6393 -2.39063,-8.6543 v -0.17968 -0.17969 l 11.15821,-37.16016 c 0.098,-0.338 0.16703,-0.68325 0.20703,-1.03125 v -0.0898 -0.0781 l 0.30078,-0.96484 c 0.116,-0.381 0.23042,-0.77309 0.35742,-1.12109 l 25.9043,-88.378911 c 0.584,-2.039398 0.31309,-4.220408 -0.75391,-6.066406 -1.067,-1.846098 -2.84145,-3.20711 -4.93945,-3.787109 -0.722,-0.1918 -1.4678,-0.289416 -2.2168,-0.291016 z m 182.09766,51.31836 c 1.807,-5e-4 3.60666,0.237831 5.34765,0.707031 l 1.59376,0.458984 c 5.06299,1.500499 9.3167,4.87117 11.8457,9.384766 2.529,4.513695 3.13173,9.809405 1.67773,14.75 l -0.0117,0.03516 -15.83398,52.685541 c -1.217,4.018 -3.7365,7.5475 -7.1875,10.0625 -3.45,2.514 -7.64594,3.88053 -11.96094,3.89453 -1.957,0.001 -3.90439,-0.28379 -5.77539,-0.84179 l -1.55859,-0.44727 c -2.506,-0.714 -4.84015,-1.90495 -6.86914,-3.50195 -2.028,-1.597 -3.70932,-3.56874 -4.94532,-5.80274 -1.28199,-2.19199 -2.09095,-4.61509 -2.37695,-7.12109 -0.286,-2.505 -0.0441,-5.04017 0.71289,-7.45117 l 15.82422,-52.687498 c 1.285,-4.061496 3.86891,-7.620559 7.37891,-10.160157 3.50899,-2.539597 7.76167,-3.928344 12.13867,-3.964843 z M 660.18164,80.162109 c 1.913,-6e-4 3.81549,0.270942 5.64648,0.806641 l 1.57227,0.449219 c 5.038,1.463298 9.27588,4.796595 11.79688,9.27539 2.52099,4.478696 3.12096,9.741491 1.66796,14.646481 l -0.01,0.0332 -4.9668,15.9414 -0.40429,1.33399 c -1.282,4.16999 -12.29993,37.3167 -14.79493,39.3457 -1.172,1.117 -2.4965,2.07194 -3.9375,2.83594 -3.00999,1.505 -6.33961,2.30403 -9.72461,2.33203 -1.78299,0 -3.55758,-0.24924 -5.26757,-0.74023 l -1.5586,-0.45899 c -5.13499,-1.415 -9.48824,-4.73705 -12.11523,-9.24805 -1.815,-3.53999 -2.61355,-7.49155 -2.31055,-11.43554 v -0.0996 -0.11328 l 11.45703,-37.45118 c 0.162,-0.594 -1.05034,3.67619 -1.02734,2.99219 v -0.17773 -0.14649 l 4.9668,-16.2207 c 1.23899,-3.974796 3.74901,-7.464093 7.16601,-9.962891 3.418,-2.498797 7.56575,-3.8777 11.84375,-3.9375 z M 182.93359,113.96875 c 1.30908,0.0932 2.61444,0.30984 3.89844,0.65234 l 1.58203,0.47071 c 5.079,1.5 9.34596,4.88116 11.87696,9.41015 2.53099,4.529 3.12243,9.84398 1.64843,14.79297 h -0.0117 l -15.82226,52.68555 c -1.219,4.01899 -3.74332,7.54945 -7.19531,10.06445 -3.453,2.515 -7.64785,3.87958 -11.96485,3.89258 -1.957,0.001 -3.90439,-0.2838 -5.77539,-0.8418 l -1.55859,-0.44726 c -2.509,-0.711 -4.846,-1.90196 -6.875,-3.50196 -2.029,-1.59999 -3.70746,-3.57745 -4.93945,-5.81445 -1.28,-2.193 -2.08901,-4.61414 -2.375,-7.11914 -0.286,-2.505 -0.0441,-5.04213 0.71093,-7.45312 l 15.82227,-52.6875 c 1.502,-4.96 4.95247,-9.14807 9.60547,-11.66407 3.48974,-1.88699 7.44581,-2.7192 11.37304,-2.43945 z m 372.25391,62.03906 0.43945,4.74024 v 0.30273 c 5.867,18.23898 14.65598,45.75842 10.20899,58.94141 l -0.0117,0.0332 c -1.155,3.554 -5.77471,7.37813 -9.4707,7.70313 h -1.15625 c -2.536,-0.007 -5.00469,-0.79219 -7.05469,-2.24219 -5.913,-3.363 -8.48966,-10.71785 -6.72266,-19.21485 2.552,-13.82198 6.50268,-28.02479 10.01367,-40.17578 0.947,-3.06099 1.91589,-5.48247 1.96289,-5.60547 z"
+       />
+    <path
+       d="M513.933 223.581C513.79 222.108 513.087 220.74 511.962 219.741C510.838 218.743 509.371 218.186 507.846 218.178C507.669 218.167 507.492 218.167 507.315 218.178L504.151 218.447L222.278 242.885L221.123 242.986C219.516 243.139 218.035 243.9 217 245.104C215.965 246.307 215.459 247.858 215.591 249.42C215.734 250.893 216.436 252.262 217.561 253.261C218.686 254.259 220.153 254.816 221.677 254.823H222.209L249.534 252.436L250.574 252.324L448.76 234.971L450.446 234.814L450.377 235.038L508.447 230.016C510.055 229.865 511.538 229.105 512.574 227.901C513.609 226.696 514.114 225.145 513.979 223.581H513.933Z"
+       />
+  </g>
+  <g fill="#F8F7ED" style="mask: url(#mask_b);">
+   <path
+      d="M 553.00391,59.513672 410.75195,71.822266 h -0.3125 c -0.517,-7e-4 -1.02828,-0.121563 -1.48828,-0.351563 -0.46,-0.23 -0.85625,-0.562203 -1.15625,-0.970703 -0.521,-0.820999 -0.8434,-1.747632 -0.9414,-2.707031 -0.098,-0.959399 0.03,-1.927832 0.375,-2.832031 1.46809,-5.765763 -7.3379,-2.25586 -7.3379,-2.25586 0,0 -6.96056,-1.828944 -10.67773,4.609375 -1.086,3.531197 -4.89813,6.727116 -8.32812,7.041016 l -67.31055,5.80664 c -2.169,0.1992 -4.16746,1.221152 -5.56445,2.84375 -1.397,1.622499 -2.07949,3.715168 -1.89649,5.822266 0.195,1.984498 1.14125,3.827629 2.65625,5.173828 1.515,1.346099 3.49193,2.098028 5.54492,2.111328 h 0.72852 l 60.05469,-5.201172 h 0.66992 c 0.773,-0.0385 1.545,0.103963 2.25,0.414063 0.705,0.3101 1.32469,0.779541 1.80469,1.36914 0.472,0.6723 0.77104,1.442901 0.87304,2.25 0.103,0.8072 -0.28515,2.390625 -0.28515,2.390626 6.62206,3.823242 16.53929,2.909682 17.95898,-2.388672 0,0 1.80103,-3.395205 3.33203,-4.595704 1.531,-1.200598 3.37708,-1.962365 5.33008,-2.197265 L 554.4707,75.464844 c 2.108,-0.1882 4.06213,-1.158033 5.45313,-2.707032 1.392,-1.548998 2.11453,-3.55833 2.01953,-5.611328 -0.095,-2.052998 -1.00225,-3.99061 -2.53125,-5.412109 -1.529,-1.421499 -3.56269,-2.216903 -5.67969,-2.220703 z"
+      />
+   </g>
+</svg> -->
+
+		</div>
+	</div>
+<!-- Our mantra is "love yourself, love your skin"-->
+	<div class="homeHero__description mb9 lg:mb0 mt4">
+		<h1 class="h5 text-center mb3 mr6 ml6" data-animate="slide-up">Our mantra is <i class="dreams"><span>l</span><span>o</span><span>v</span><span>e</span></i> yourself&nbsp;<i class="dreams"><span>l</span><span>o</span><span>v</span><span>e</span></i> your skin&nbsp;</h1>
+
+		<!-- <div class="lg:hidden md:mr4 md:ml4 mb4 flex justify-between content homeHero__productTags">
+				<a href="/products/mattress" class="button button--tag grow font-cta-sm">Mattress</a>
+				<a href="/products/mattress-topper" class="button button--tag grow font-cta-sm">Topper</a>
+				<a href="/products/pillow" class="button button--tag grow font-cta-sm">Pillow</a>
+		</div> -->
+		<p class="block text-center eyebrow-sm uppercase">Sonia Reisin</p>
+	</div>
+	<script>
+		'use strict';
+		(function() {
+			function shuffle(a) {
+				var j, x, i;
+				for (i = a.length - 1; i > 0; i--) {
+					j = Math.floor(Math.random() * (i + 1));
+					x = a[i];
+					a[i] = a[j];
+					a[j] = x;
+				}
+				return a;
+			}
+
+			const imgs = shuffle(Array.from(document.querySelectorAll('.homeHero__images > img')));
+			for(const img of imgs) {
+				img.style.opacity = 0;
+			}
+
+			const TRANSITION_DURATION_SEC = 13;
+
+			let timeout1, timeout2;
+			let i = 0;
+			const revealImage = function() {
+				const prevImage = imgs[i];
+				i = (i+1) % imgs.length;
+				const nextImage = imgs[i];
+
+				nextImage.style.transition = 'none';
+				nextImage.style.transform = 'scale(110%) translateX(-2.5vw)';
+				nextImage.style.opacity = 0;
+				nextImage.style.zIndex = 2;
+				prevImage.style.zIndex = 1;
+
+				// trigger reflow, more reliable than setTimeout
+				nextImage.offsetHeight;
+
+				nextImage.style.transition = `opacity 1.25s linear, transform ${TRANSITION_DURATION_SEC}s linear`;
+				nextImage.style.transform = 'scale(110%) translateX(2.5vw)';
+				nextImage.style.opacity = 1;
+
+				timeout1 = setTimeout(revealImage, (TRANSITION_DURATION_SEC - 1.35) * 1000);
+				timeout2 = setTimeout(() => {
+					nextImage.style.zIndex = 0;
+					nextImage.style.opacity = 0;
+				}, TRANSITION_DURATION_SEC * 1000);
+			};
+
+			// stop animation on page navigation
+			document.addEventListener('pjax:send', function() {
+				clearTimeout(timeout1);
+				clearTimeout(timeout2);
+			}, {once: true});
+
+			// hide featured product tags
+			const tags = document.querySelector('.featuredProductTags');
+			tags.style.opacity = 0;
+			tags.offsetHeight;
+			tags.style.transition = 'opacity 1s';
+
+			const logo = document.querySelector('.homeHero__logo');
+			const desc = document.querySelector('.homeHero__description');
+
+			// reveal logo
+			logo.classList.add('homeHero__logo--play');
+			setTimeout(function() {
+				revealImage();
+				
+				setTimeout(function() {
+					desc.classList.add('homeHero__description--reveal');
+					tags.style.opacity = 1;
+					desc.querySelector('.dreams').classList.add('dreamsWave');
+				}, 800);
+			}, 1440);
+
+			// hide logo completely on mobile after transition in
+			setTimeout(function() {
+				logo.classList.add('homeHero__logo--hidden');
+				document.getElementById('menu__mobileLogo').classList.remove('o0');
+			}, 1960);
+		})();
+	</script>
+</header>
+</div>
+
+<div class="hidden lg:block">
+	
+<div class="marquee  block overflow-h color--black bb1--gray3">
+	<div class="marquee__container inline-block whitespace-nowrap" style="animation-duration: 25.5s;">
+		<span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s comfortable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s durable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s sustainable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s safe</span><span class="marquee__item eyebrow-sm pl4 pr4">It comes from a tree</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s oh so springy</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s comfortable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s durable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s sustainable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s safe</span><span class="marquee__item eyebrow-sm pl4 pr4">It comes from a tree</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s oh so springy</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s comfortable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s durable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s sustainable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s safe</span><span class="marquee__item eyebrow-sm pl4 pr4">It comes from a tree</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s oh so springy</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s comfortable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s durable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s sustainable</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s safe</span><span class="marquee__item eyebrow-sm pl4 pr4">It comes from a tree</span><span class="marquee__item eyebrow-sm pl4 pr4">It&#39;s oh so springy</span>
+	</div>
+</div>
+
+</div>
+
+<section class="animation-container">
+	<div class="mb4 md:mb6" data-animate="slide-up delay-2">
+		<section class="mt7 mb7 md:mt9 md:mb9 lg:mt10 content contentgrid animation-container">
+	<div class="text-center col-start-1 col-span-12 md:col-start-4 md:col-span-18 lg:col-start-6 lg:col-span-14" data-animate="slide-up">
+		<h2 class="h5 mb4">
+            Delve into the world of custom-made, skin-loving, <br>organic soaps crafted with precision and care.
+        </h2>
+        <a href="#" class="text-center font-cta-sm underline">See all the projects I've worked on.</a>        
+	</div>
+</section>
+	</div>
+</section>
+
+<section class="featuredProductsGrid content contentgrid mt7 md:mt9 md:mb9 lg:mt10 lg:mb10">
+	<div class="animation-container relative mb8 lg:mb0 md:col-span-14 md:col-start-1 lg:col-span-11 lg:col-start-3" style="grid-row-start: 1; grid-row-end: span 15;">
+	<a href="/products/mattress" data-animate="slide-up delay-2" class="productLink inline-block featuredProductsGrid__product">
+
+
+		<div id="product_12d55d50719ac" class="mb4 relative overflow-h" style="aspect-ratio: 1.5;">
+			<img class="w-contained w-full h-full fit--cover rounded" 
+				src="img/HOME_HERO_01_640x.jpg" width="640" height="360"  alt="Wide shot of the mattress with a sheet draped over it" style="object-position: 77.890625% 49.13194444444444%;"
+				>
+		</div>
+		<style>
+			#product_12d55d50719ac {
+				max-width: 100.0%;
+				max-height: auto;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			@media (min-width: 768px) {
+				#product_12d55d50719ac {
+					max-width: unset;
+				}
+			}
+		</style>
+		<div class="flex flex-col relative text-center md:text-left">
+			<h2 class="h7 mb1">Home</h2>
+				<p class="font-body-lg">Naturally cool with cushiony support.</p>
+
+			<!-- <div class="eyebrow-sm mt3 md:mt1 md:absolute t0 r0">from $699</div> -->
+		</div>
+	</a>
+	</div>
+	<div class="animation-container relative mb8 lg:mb0 md:col-span-9 md:col-start-16 lg:col-span-8 lg:col-start-15" style="grid-row-start: 8; grid-row-end: span 15;">
+	<a href="#" data-animate="slide-up delay-3" class="productLink inline-block featuredProductsGrid__product">
+
+
+		<div id="product_1f79e8e68a9ec" class="mb4 relative overflow-h" style="aspect-ratio: 0.8;">
+			<img class="w-contained w-full h-full fit--cover rounded" 
+				src="img/HOME_HERO_03_640x.jpg" width="640" height="360"  alt="Full view of mattress and topper" style="object-position: 52.42187499999999% 64.96527777777777%;"
+				>
+			<img class="w-contained w-full h-full fit--cover rounded" 
+				src="img/HOME_HERO_04_640x.jpg" width="640" height="360"  alt="Medium shot of the mattress topper on top of the mattress" style="object-position: 24.921875% 50.798611111111114%;"
+				>
+		</div>
+		<style>
+			#product_1f79e8e68a9ec {
+				max-width: 53.333333333333336%;
+				max-height: auto;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			@media (min-width: 768px) {
+				#product_1f79e8e68a9ec {
+					max-width: unset;
+				}
+			}
+		</style>
+		<div class="flex flex-col relative text-center md:text-left">
+			<h2 class="h7 mb1">Mattress Topper</h2>
+				<p class="font-body-lg">Extra squish.</p>
+
+			<!-- <div class="eyebrow-sm mt3 md:mt1 md:absolute t0 r0">from $299</div> -->
+		</div>
+	</a>
+	</div>
+	<div class="animation-container relative mb8 lg:mb0 md:col-span-12 md:col-start-2 lg:col-span-9 lg:col-start-4" style="grid-row-start: 18; grid-row-end: span 15;">
+	<a href="/products/pillow" data-animate="slide-up delay-4" class="productLink inline-block featuredProductsGrid__product">
+
+
+		<div id="product_106d7d5dfaf10" class="mb4 relative overflow-h" style="aspect-ratio: 1;">
+			<img class="w-contained w-full h-full fit--cover rounded" 
+				src="img/HOME_HERO_04_640x.jpg" width="640" height="360"  alt="soniareisin" style="object-position: 43.046875% 39.6875%;"
+				>
+			<img class="w-contained w-full h-full fit--cover rounded" 
+				src="img/HOME_HERO_01_640x.jpg" width="640" height="360"  alt="Woman with head lying on the pillow" style="object-position: 17.265625% 57.1875%;"
+				>
+		</div>
+		<style>
+			#product_106d7d5dfaf10 {
+				max-width: 66.66666666666666%;
+				max-height: auto;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			@media (min-width: 768px) {
+				#product_106d7d5dfaf10 {
+					max-width: unset;
+				}
+			}
+		</style>
+		<div class="flex flex-col relative text-center md:text-left">
+			<h2 class="h7 mb1">Pillow</h2>
+				<p class="font-body-lg">Always fluffed.</p>
+
+			<!-- <div class="eyebrow-sm mt3 md:mt1 md:absolute t0 r0">from $99</div> -->
+		</div>
+	</a>
+	</div>
+</section>
+<div class="productLinkHoverText eyebrow-sm absolute">View Projects</div>
+
+
+<section>
+	<div data-animate="slide-up">
+		<section class="pressQuotes contentgrid lg:mt7 lg:mt10 pt5 pb5 lg:pt9 lg:pb9 bg--sunset2 relative">
+	<div class="col-start-1 col-span-12 md:col-start-2 md:col-span-22">
+		<div class="pressQuotes__container w-full relative overflow-h">
+			<div class="pressQuotes__quote content contentgrid absolute w-full t0 l0 r0 b0" style="">
+				<h2 class="h4 mb5 lg:mb10 color--cotton col-start-1 col-span-12 md:col-start-2 md:col-span-22 lg:col-start-2 lg:col-span-15">&#8220;"Working with Sonia Reisin was an absolute delight. She not only delivered beautifully fragranced, custom-made soaps, but she also offered invaluable insights into what our customers would love. Her expertise in fragrance creation is second to none."
+                    &#8221;</h2>
+
+			</div>
+			<div class="pressQuotes__quote content contentgrid absolute w-full t0 l0 r0 b0" style="transform: translateX(100%); opacity: 0;">
+				<h2 class="h4 mb5 lg:mb10 color--cotton col-start-1 col-span-12 md:col-start-2 md:col-span-22 lg:col-start-2 lg:col-span-15">&#8220;"Sonia's uncanny ability to pinpoint our brand's identity and transform it into a fragrance is simply amazing. Our line of personalized soaps has received numerous accolades, and it's all thanks to her."
+                    &#8221;</h2>
+
+			</div>
+			<div class="pressQuotes__quote content contentgrid absolute w-full t0 l0 r0 b0" style="transform: translateX(100%); opacity: 0;">
+				<h2 class="h4 mb5 lg:mb10 color--cotton col-start-1 col-span-12 md:col-start-2 md:col-span-22 lg:col-start-2 lg:col-span-15">&#8220;"Sonia Reisin is a visionary in custom soap creation. Her unique approach and commitment to natural ingredients have helped us offer our customers a product line that we're proud of. We can't wait for our next collaboration!"
+                    &#8221;</h2>
+
+			</div>
+			<div class="pressQuotes__quote content contentgrid absolute w-full t0 l0 r0 b0" style="transform: translateX(100%); opacity: 0;">
+				<h2 class="h4 mb5 lg:mb10 color--cotton col-start-1 col-span-12 md:col-start-2 md:col-span-22 lg:col-start-2 lg:col-span-15">&#8220;"We had an idea but Sonia brought it to life. The customized soaps she created for our company are not just fragrant and skin-friendly, they're the essence of our brand. We couldn't have asked for a better collaboration."
+                    &#8221;</h2>
+
+			</div>
+			<div class="pressQuotes__quote content contentgrid absolute w-full t0 l0 r0 b0" style="transform: translateX(100%); opacity: 0;">
+				<h2 class="h4 mb5 lg:mb10 color--cotton col-start-1 col-span-12 md:col-start-2 md:col-span-22 lg:col-start-2 lg:col-span-15">&#8220;"Sonia Reisin's personalized soaps have been a game-changer for our business. She meticulously designed fragrances that perfectly match our brand's ethos. The feedback from our customers has been overwhelmingly positive."
+                    &#8221;</h2>
+
+			</div>
+		</div>
+
+		<div class="content contentgrid hidden md:grid">
+			<div class="col-start-1 col-span-12 md:col-start-2 md:col-span-22 lg:col-start-2 lg:col-span-22 items-center" style="grid-auto-flow: column; display: grid; grid-auto-columns: 1fr; gap: 12.5%;">
+				<img src="/img/Meta-Logo.png" width="640" height="195"  alt="" style="object-position: 50.0% 50.0%; " class="pressQuotes__navLogo w-full h-auto cursor-pointer" data-index="0">
+				<img src="/img/amex.png" width="200" height="89"  alt="" style="object-position: 50.0% 50.0%; opacity: 0.6;" class="pressQuotes__navLogo w-full h-auto cursor-pointer" data-index="1">
+				<img src="/img/faena.png" width="600" height="88"  alt="" style="object-position: 50.0% 50.0%; opacity: 0.6;" class="pressQuotes__navLogo w-full h-auto cursor-pointer" data-index="2">
+				<img src="/img/Meta-Logo.png" width="326" height="60"  alt="The Good Trade" style="object-position: 50.0% 50.0%; opacity: 0.6;" class="pressQuotes__navLogo w-full h-auto cursor-pointer" data-index="3">
+				<img src="/img/amex.png" width="485" height="60"  alt="Inhabitat" style="object-position: 50.0% 50.0%; opacity: 0.6;" class="pressQuotes__navLogo w-full h-auto cursor-pointer" data-index="4">
+			</div>
+		</div>
+
+		<div class="content flex flex-row justify-between items-center md:hidden">
+			<div class="pressQuotes__indicators flex flex-row l0 b0">
+				<div class="pressQuotes__indicator mr2 cursor-pointer" style="" data-index="0"></div>
+				<div class="pressQuotes__indicator mr2 cursor-pointer" style="opacity: 0.4;" data-index="1"></div>
+				<div class="pressQuotes__indicator mr2 cursor-pointer" style="opacity: 0.4;" data-index="2"></div>
+				<div class="pressQuotes__indicator mr2 cursor-pointer" style="opacity: 0.4;" data-index="3"></div>
+				<div class="pressQuotes__indicator mr2 cursor-pointer" style="opacity: 0.4;" data-index="4"></div>
+			</div>
+			<div class="pressQuotes__mobileLogos relative" style="height: 25px;">
+					<img src="/img/editorial_logo_apttherapy-stack_640x.png" width="640" height="195"  alt="" style="object-position: 50.0% 50.0%; " class="pressQuotes__mobileLogo absolute r0 h-full w-auto" data-index="0">
+					<img src="/img/editorial_logo_hunker-xtrasm_640x.png" width="200" height="89"  alt="" style="object-position: 50.0% 50.0%; opacity: 0;" class="pressQuotes__mobileLogo absolute r0 h-full w-auto" data-index="1">
+					<img src="/img/editorial_logo_gearpatrol-sm_640x.png" width="600" height="88"  alt="" style="object-position: 50.0% 50.0%; opacity: 0;" class="pressQuotes__mobileLogo absolute r0 h-full w-auto" data-index="2">
+					<img src="/img/editorial_logo_goodtrade.svg" width="326" height="60"  alt="The Good Trade" style="object-position: 50.0% 50.0%; opacity: 0;" class="pressQuotes__mobileLogo absolute r0 h-full w-auto" data-index="3">
+					<img src="/img/editorial_logo_inhabitat.svg" width="485" height="60"  alt="Inhabitat" style="object-position: 50.0% 50.0%; opacity: 0;" class="pressQuotes__mobileLogo absolute r0 h-full w-auto" data-index="4">
+			</div>
+		</div>
+	</div>
+</section>
+
+
+	</div>
+</section>
+
+<section>
+	<div class="mb4 md:mb6" data-animate="slide-up">
+		
+<section class="twoColumnImageDetailHome md:grid contentgrid mb9 lg:mb9">
+	<div class="col-start-1 col-span-12 md:col-start-1 md:col-span-24 lg:col-span-12 mb6 lg:mb0 lg:col-start-13">
+		<img class="twoColumnImageDetailHome__image w-full fit--cover"
+			src="/img/hearts2.webp" width="370" height="440"  alt="a block of foam on a pedestal " style="object-position: 50.0% 50.0%;"
+			>
+	</div>
+	<div class="animation-container lg:flex flex-col justify-center twoColumnImageDetailHome__body col-start-1 col-span-12 md:col-start-3 md:col-span-20 lg:col-span-8 text-center lg:text-left lg:col-start-3">
+		<div class="self-start lg:mt9">
+			<h3 class="eyebrow-sm mb3" data-animate="slide-up delay-0">Why Hearth</h3>
+			<h2 class="h3 mb3 md:mb6"><span data-animate="slide-up delay-1">Valentine's Soap Box - LOVE IS LOVE</span><br></h2>
+		</div>
+		<div class="lg:pb9">
+			<div class="mb5 md:mb6 font-body-md font-weight-lt color--gray1" data-animate="slide-up delay-2">
+				A colorful collection of 8 soaps in a box, made with organic base and Lemongrass Verbena scent. Perfect to gift, inspired in the concept of Freedom to Love, <br><br>to honor and support an acceptance for all types of love between any person and another.
+			</div>	
+				<div class="lg:mt7" data-animate="slide-up delay-4">
+					<a href="/about" class="button button--primary font-cta-lg">See more</a>
+				</div>
+		</div>
+	</div>
+</section>
+<section class="md:grid content contentgrid md:mb9 animation-container">
+	<div class="col-start-1 col-span-12 md:col-start-3 md:col-span-21 lg:col-start-13 lg:col-span-8" data-animate="slide-up">
+		<h2 class="h4 mb3 md:mb6">What makes our soaps amazing?</h2>
+		<div class="accordion mt1">
+		<div class="accordion__fold bb1--gray3 pt3 pb3" role="button" aria-expanded="true" tabindex="0">
+			<header class="accordion__foldHeader flex justify-between cursor-pointer">
+				<h3 class="font-body-lg">Shipping & Returns</h3>
+				<div class="accordion__triangle mr2 ml1"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.8001 8L0.643175 2L8.95702 2L4.8001 8Z" fill="currentColor"/>
+</svg>
+</div>
+			</header>
+			<div class="accordion__foldBody overflow-h font-body-md font-weight-lt">
+				<div class="richtext"><p>Our orders ship everyday with USPS and should arrive to you in 3-5 business days. We ship internationally with DHL.
+
+                    Your product will arrive sealed and in perfect condition, if this is not the case please contact us and we will exchange it for no extra cost</p></div>
+			</div>
+		</div>
+		<div class="accordion__fold bb1--gray3 pt3 pb3" role="button" aria-expanded="true" tabindex="0">
+			<header class="accordion__foldHeader flex justify-between cursor-pointer">
+				<h3 class="font-body-lg">Our promise</h3>
+				<div class="accordion__triangle mr2 ml1"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.8001 8L0.643175 2L8.95702 2L4.8001 8Z" fill="currentColor"/>
+</svg>
+</div>
+			</header>
+			<div class="accordion__foldBody overflow-h font-body-md font-weight-lt">
+				<div class="richtext"><p>Every Ölsüss products is 100% natural, sustainable and cruelty-free.
+
+                    Handmade locally at our shop.</p></div>
+			</div>
+		</div>
+		<!-- <div class="accordion__fold bb1--gray3 pt3 pb3" role="button" aria-expanded="true" tabindex="0">
+			<header class="accordion__foldHeader flex justify-between cursor-pointer">
+				<h3 class="font-body-lg">10-year warranty</h3>
+				<div class="accordion__triangle mr2 ml1"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.8001 8L0.643175 2L8.95702 2L4.8001 8Z" fill="currentColor"/>
+</svg>
+</div>
+			</header>
+			<div class="accordion__foldBody overflow-h font-body-md font-weight-lt">
+				<div class="richtext"><p>We stand behind all of our products and include a comprehensive 10-year warranty for every mattress, and a 5-year warranty for toppers and pillows.</p></div>
+			</div>
+		</div> -->
+</div>
+
+
+	</div>
+</section>
+
+	</div>
+</section>
+
+<section>
+	<div class="mb4 md:mb6" data-animate="slide-up">
+		<section class="animation-container fullBleedImage relative flex flex-col justify-center md:justify-start md:items-start items-center content-fullbleed">
+	<img class="w-full fit--cover mb3 md:mb0"
+		src="/img/fondojabon.png" width="100%" height="527"  alt="Person sitting on corner of mattress" style="object-position: 40.078125% 45.24114461358314%;"
+		>
+	<div class="fullBleedImage__caption md:pl3 lg:pl7 md:absolute b0 animation-container">
+		<div data-animate="slide-up">
+			<h3 class="h4 mb2">The Bahamas Collection</h3>
+		</div>
+		<div class="" data-animate="slide-up">
+			<span class="h7">Naturally cool</span>
+		</div>
+		<div class="mb3 mt3 lg:mb7 lg:mt7" data-animate="slide-up">
+			<a href="#" class="button button--primary font-cta-lg">Shop Now</a>
+		</div>
+	</div>
+</section>
+
+	</div>
+</section>
+
+<section class="content featuredBlogGrid lg:pl7 lg:pr7 mt7 mb7 md:mt9 md:mb9 lg:mt10 lg:mb10">
+	<div class="mb6 md:mb9 text-center md:text-left md:inline-block animation-container">
+		<h1 class="h5 mb4 lg:mb7 lg:mr6 xxl:mr8" data-animate="slide-up delay-0">Looking for some light reading about the benefits of work with Sonia? Start&nbsp;here.</h1>
+		<a href="#" class="underline font-cta-sm" data-animate="slide-up delay-0">Curl up with our entire journal.</a>
+	</div>
+		<div class="mb4 md:mb6 md:inline-block w-full animation-container">
+			<div data-animate="slide-up delay-1 md:delay-2">
+			<a href="#" class="blogPostPreview relative block h-full bg--gray3 rounded overflow-h">
+	<img class="blogPostPreview__image relative w-full h-full fit--cover"
+		src="/img/EF-Blog-October-Website-01_1280x.webp" width="498" height="640"  alt="Graphic of soniareisin factory" style="object-position: 50.0% 50.0%;"
+		>
+	<div class="absolute t0 l0 p3 color--white eyebrow-sm">3 minute read</div>
+	<div class="absolute w-full mb4 pl2 pr2 md:pl3 md:pr3" style="bottom: 0px;" data-animate="slide-up delay-2">
+		<div class="blogPostPreview__button  relative overflow-h flex justify-between items-center pl3 pr3 pt2 pb2 brad--3 b--gray3 bg--white color--black">
+			<h2 class="font-body-lg whitespace-nowrap ellipsis overflow-h">Sonia Reisin: The Artisan Behind Revolutionizing the Custom Soap Industry</h2>
+			<span class="ml2"><svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.5303 6.53033C14.8232 6.23744 14.8232 5.76256 14.5303 5.46967L9.75736 0.696699C9.46447 0.403806 8.98959 0.403806 8.6967 0.696699C8.40381 0.989592 8.40381 1.46447 8.6967 1.75736L12.9393 6L8.6967 10.2426C8.40381 10.5355 8.40381 11.0104 8.6967 11.3033C8.98959 11.5962 9.46447 11.5962 9.75736 11.3033L14.5303 6.53033ZM14 5.25L2.98023e-07 5.25V6.75L14 6.75V5.25Z" fill="currentColor"/>
+</svg>
+</span>
+		</div>
+	</div>
+</a>
+			</div>
+		</div>
+		<div class="mb4 md:mb6 md:inline-block w-full animation-container">
+			<div data-animate="slide-up delay-2 md:delay-1">
+			<a href="#" class="blogPostPreview relative block h-full bg--gray3 rounded overflow-h">
+	<img class="blogPostPreview__image relative w-full h-full fit--cover"
+		src="/img/EF-Blog-October-Website-03_1280x.webp" width="498" height="640"  alt="Illustration of three sheep in a field next to a river with sun setting behind mountains" style="object-position: 50.0% 50.0%;"
+		>
+	<div class="absolute t0 l0 p3 color--white eyebrow-sm">3 minute read</div>
+	<div class="absolute w-full mb4 pl2 pr2 md:pl3 md:pr3" style="bottom: 0px;" data-animate="slide-up delay-2">
+		<div class="blogPostPreview__button  relative overflow-h flex justify-between items-center pl3 pr3 pt2 pb2 brad--3 b--gray3 bg--white color--black">
+			<h2 class="font-body-lg whitespace-nowrap ellipsis overflow-h">Elevating Soap Craftsmanship: An Exclusive Interview with Sonia Reisin</h2>
+			<span class="ml2"><svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.5303 6.53033C14.8232 6.23744 14.8232 5.76256 14.5303 5.46967L9.75736 0.696699C9.46447 0.403806 8.98959 0.403806 8.6967 0.696699C8.40381 0.989592 8.40381 1.46447 8.6967 1.75736L12.9393 6L8.6967 10.2426C8.40381 10.5355 8.40381 11.0104 8.6967 11.3033C8.98959 11.5962 9.46447 11.5962 9.75736 11.3033L14.5303 6.53033ZM14 5.25L2.98023e-07 5.25V6.75L14 6.75V5.25Z" fill="currentColor"/>
+</svg>
+</span>
+		</div>
+	</div>
+</a>
+			</div>
+		</div>
+		<div class="mb4 md:mb6 md:inline-block w-full animation-container">
+			<div data-animate="slide-up delay-3 md:delay-3">
+			<a href="#" class="blogPostPreview relative block h-full bg--gray3 rounded overflow-h">
+	<img class="blogPostPreview__image relative w-full h-full fit--cover"
+		src="/img/EF-Blog-October-Website-04_1280x.webp" width="488" height="640"  alt="Illustration of rubber tress with sun rays shining through" style="object-position: 50.0% 50.0%;"
+		>
+	<div class="absolute t0 l0 p3 color--white eyebrow-sm">4 minute read</div>
+	<div class="absolute w-full mb4 pl2 pr2 md:pl3 md:pr3" style="bottom: 0px;" data-animate="slide-up delay-2">
+		<div class="blogPostPreview__button  relative overflow-h flex justify-between items-center pl3 pr3 pt2 pb2 brad--3 b--gray3 bg--white color--black">
+			<h2 class="font-body-lg whitespace-nowrap ellipsis overflow-h">The Journey from Aroma Enthusiast to Renowned Soapmaker</h2>
+			<span class="ml2"><svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.5303 6.53033C14.8232 6.23744 14.8232 5.76256 14.5303 5.46967L9.75736 0.696699C9.46447 0.403806 8.98959 0.403806 8.6967 0.696699C8.40381 0.989592 8.40381 1.46447 8.6967 1.75736L12.9393 6L8.6967 10.2426C8.40381 10.5355 8.40381 11.0104 8.6967 11.3033C8.98959 11.5962 9.46447 11.5962 9.75736 11.3033L14.5303 6.53033ZM14 5.25L2.98023e-07 5.25V6.75L14 6.75V5.25Z" fill="currentColor"/>
+</svg>
+</span>
+		</div>
+	</div>
+</a>
+			</div>
+		</div>
+</section>
+
+
+<section class="mt7 md:mt9 lg:mt10 text-center content-fullbleed contentgrid animation-container">
+	<div class="col-start-1 col-span-12 md:col-start-4 md:col-span-18 lg:col-start-8 lg:col-span-10 mb7 lg:mb9" data-animate="slide-up">
+		<h3 class="h5 mb4 md:mb6 md:col-start-5 md:col-span-16">Our mantra is love yourself love your skin </h3>
+		<a href="https://www.instagram.com/soniareisin/" target="_blank"><h4 class="eyebrow-sm">@soniareisin</h4></a>
+	</div>
+
+	<!-- <a href="https://www.instagram.com/soniareisin/" target="_blank" class="col-start-1 col-span-12 md:col-start-1 md:col-span-24 flex flex-row" data-animate="slide-up delay-3">
+		<img class="instagramPromo__image fit--cover h-full "
+			src="/img/P_M_04A_640x.jpg" width="640" height="640"  alt="" style="object-position: 50.0% 50.0%;"
+			srcset="/img/P_M_04A_1280x.jpg 1280w,
+				/img/P_M_04A_640x.jpg 640w"
+			sizes="(min-width: 1024px) 25vw,
+				33vw">
+		<img class="instagramPromo__image fit--cover h-full "
+			src="/img/11_A_640x.jpg" width="640" height="640"  alt="Abstract illustration of cotton forming a river in the sky" style="object-position: 50.0% 50.0%;"
+			srcset="/img/11_A_1280x.jpg 1280w,
+				/img/11_A_640x.jpg 640w"
+			sizes="(min-width: 1024px) 25vw,
+				33vw">
+		<img class="instagramPromo__image fit--cover h-full "
+			src="/img/P_BEN_03_640x.jpg" width="640" height="640"  alt="" style="object-position: 50.0% 50.0%;"
+			srcset="/img/P_BEN_03_1280x.jpg 1280w,
+				/img/P_BEN_03_640x.jpg 640w"
+			sizes="(min-width: 1024px) 25vw,
+				33vw">
+		<img class="instagramPromo__image fit--cover h-full hidden lg:block"
+			src="/img/P_FEEL_02_640x.jpg" width="640" height="640"  alt="" style="object-position: 50.0% 50.0%;"
+			srcset="/img/P_FEEL_02_1280x.jpg 1280w,
+				/img/P_FEEL_02_640x.jpg 640w"
+			sizes="(min-width: 1024px) 25vw,
+				33vw">
+	</a> -->
+</section>
+
+			</main>
+			<footer>
+	<a href="/help/shipping-and-returns">
+<div class="marquee marquee--linked block overflow-h color--white bg--black bb1--gray1">
+	<div class="marquee__container inline-block whitespace-nowrap" style="animation-duration: 17.0s;">
+		<span class="marquee__item eyebrow-sm pl4 pr4">Free Shipping</span><span class="marquee__item eyebrow-sm pl4 pr4">100-Day Trial</span><span class="marquee__item eyebrow-sm pl4 pr4">Free Returns</span><span class="marquee__item eyebrow-sm pl4 pr4">10-Year Warranty</span><span class="marquee__item eyebrow-sm pl4 pr4">Free Shipping</span><span class="marquee__item eyebrow-sm pl4 pr4">100-Day Trial</span><span class="marquee__item eyebrow-sm pl4 pr4">Free Returns</span><span class="marquee__item eyebrow-sm pl4 pr4">10-Year Warranty</span><span class="marquee__item eyebrow-sm pl4 pr4">Free Shipping</span><span class="marquee__item eyebrow-sm pl4 pr4">100-Day Trial</span><span class="marquee__item eyebrow-sm pl4 pr4">Free Returns</span><span class="marquee__item eyebrow-sm pl4 pr4">10-Year Warranty</span><span class="marquee__item eyebrow-sm pl4 pr4">Free Shipping</span><span class="marquee__item eyebrow-sm pl4 pr4">100-Day Trial</span><span class="marquee__item eyebrow-sm pl4 pr4">Free Returns</span><span class="marquee__item eyebrow-sm pl4 pr4">10-Year Warranty</span>
+	</div>
+</div>
+</a>
+	<div class="bg--black color--white pt5 pb5">
+		<div class="relative content contentgrid">
+			<div class="footerGrid col-start-1 col-span-12 md:col-start-2 md:col-span-22">
+				<div class="footerGrid__emailForm mb8 lg:mb0">
+					<h2 class="font-body-lg mb4">Sign up for updates, and&nbsp;offers.</h2>
+					<script>
+						function handleNewsletterSubmit(event) {
+							event.preventDefault();
+							const input = event.target.querySelector('input[type="email"]');
+							const group = event.target.querySelector('input[name="g"]');
+							const button = event.target.querySelector('button');
+							const submit = button.querySelector('.newsletter__submit');
+							const processing = button.querySelector('.newsletter__processing');
+							const success = button.querySelector('.newsletter__success');
+
+							function onError() {
+								alert('There was an error with your signup. Please try again later.');
+								input.disabled = false;
+								button.disabled = false;
+								processing.classList.add('hidden');
+								submit.classList.remove('hidden');
+							}
+
+							input.disabled = true;
+							button.disabled = true;
+							submit.classList.add('hidden');
+							processing.classList.remove('hidden');
+
+							// --- Tracking --- //
+							window.dataLayer.push({
+								event: 'emailSubmit',
+								email: input.value,
+								group: group.value,
+								timezoneOffset: new Date().getTimezoneOffset(),
+							});
+							// --- Tracking --- //
+							
+							fetch(event.target.dataset.ajaxAction, {
+								method: 'POST',
+								headers: {
+									"Access-Control-Allow-Headers": "*",
+									"Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
+								},
+								body: new URLSearchParams({
+									email: input.value,
+									g: group.value,
+									$timezone_offset: new Date().getTimezoneOffset(),
+								}),
+								cache: 'no-store',
+							}).then(function(resp) {
+								if(!resp.ok) throw new Error(resp);
+								return resp.json();
+							}).then(function(resp) {
+								if(!resp.success) throw new Error(resp);
+
+								processing.classList.add('hidden');
+								success.classList.remove('hidden');
+								button.classList.remove('opacity--disabled');
+
+							}).catch(function(e) {
+								onError();
+							});
+						}
+					</script>
+					<form class="flex flex-row color--white font-body-lg" method="GET" action="https://manage.kmail-lists.com/subscriptions/subscribe" data-ajax-action="https://manage.kmail-lists.com/ajax/subscriptions/subscribe" onsubmit="handleNewsletterSubmit(event);">
+						<input type="hidden" name="g" value="RePdxG">
+						<input class="grow p2 opacity--disabled" type="email" placeholder="Email address" name="email" autocomplete="off">
+						<button aria-label="submit" class="p2 cursor-pointer color--white flex items-center justify-center opacity--disabled">
+							<span class="newsletter__submit"><svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.5303 6.53033C14.8232 6.23744 14.8232 5.76256 14.5303 5.46967L9.75736 0.696699C9.46447 0.403806 8.98959 0.403806 8.6967 0.696699C8.40381 0.989592 8.40381 1.46447 8.6967 1.75736L12.9393 6L8.6967 10.2426C8.40381 10.5355 8.40381 11.0104 8.6967 11.3033C8.98959 11.5962 9.46447 11.5962 9.75736 11.3033L14.5303 6.53033ZM14 5.25L2.98023e-07 5.25V6.75L14 6.75V5.25Z" fill="currentColor"/>
+</svg>
+</span>
+							<span class="newsletter__processing hidden"><svg width="19" height="3" viewBox="0 0 19 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="9.5" cy="1.5" r="1.5" fill="currentColor"/>
+<circle cx="17.5" cy="1.5" r="1.5" fill="currentColor"/>
+<circle cx="1.5" cy="1.5" r="1.5" fill="currentColor"/>
+</svg>
+</span>
+							<span class="newsletter__success hidden"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.34615 8.5L5.84627 13L15.0001 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</span>
+						</button>
+					</form>
+				</div>
+
+				<nav class="footerGrid__nav mb8 lg:mb0">
+					<a class="mb3 md:mb0 lg:mr3" href="https://www.olsuss.com/">Olsuss</a>
+					<a class="mb3 md:mb0 lg:mr3" href="#">Make up</a></a>
+					<a class="mb3 md:mb0 lg:mr3 footerNav__link flex items-center" href="#" ><span>Contact Us</span></a>
+
+					<a class="mb3 md:mb0 lg:mr3" href="#">Privacy Policy</a>
+					<a class="mb3 md:mb0 lg:mr3" href="#">Terms of Service</a>
+				</nav>
+				
+				<div class="footerGrid__social mb5 flex flex-col mb8 lg:mb0">
+					<div class="flex flex-row mb4">
+						<a class="mr3" href="https://www.instagram.com/soniareisin/" target="_blank"><img src="/graphics/soc_inst.svg" alt="Instagram" width="20" height="19"></a>
+					</div>
+
+					<div class="font-body-sm">
+						<p style="margin-bottom: 5px;">Copyright &copy; 2023 Sonia Reisin&nbsp;.</p>
+						<p>All Rights Reserved.</p>
+					</div>
+				</div>
+
+				<!-- <div class="footerGrid__sinhala overflow-h flex flex-col md:flex-row justify-between relative">
+					<div style="visibility: hidden;">ශ්‍රී ලංකාවේ අස්වනු නෙලනු ලැබේ.</div>
+					<div class="eyebrow-sm footer__tagline pt1">Harvested in Sri Lanka.</div>
+					<div class="font-sinhala footer__tagline footer__tagline--delay">ශ්‍රී ලංකාවේ අස්වනු නෙලනු ලැබේ.</div>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</footer>
+		</div>
+	</div>
+	<div id="bodyTail">
+	<div id="lightbox" class="modal flex items-center justify-center fixed t0 l0 r0 b0" style="display: none;">
+	<div class="modal__background absolute t0 l0 r0 b0"></div>
+	<div class="modal__content brad--1 bg--white relative flex flex-col">
+		<header class="p2 tr">
+			<button class="cursor-pointer color--black" aria-label="Close">&times;</button>
+		</header>
+		<div class="scroll-y modal__body" data-img-class="w-contained h-contained h-auto fit--contain p2 mb2">
+		</div>
+	</div>
+</div>
+
+
+		</div>
+</body>
+</html>
